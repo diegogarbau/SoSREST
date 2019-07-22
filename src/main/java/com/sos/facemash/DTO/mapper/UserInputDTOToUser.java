@@ -13,7 +13,7 @@ public class UserInputDTOToUser {
                 .setMail(user.getMail())
                 .setPhone(user.getPhone())
                 .setName(user.getName())
-                .setLastName(user.getLastname())
+                .setLastName(user.getLastName())
                 .build();
     }
 }

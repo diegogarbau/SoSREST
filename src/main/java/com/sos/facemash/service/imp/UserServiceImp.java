@@ -7,7 +7,6 @@ import com.sos.facemash.DTO.mapper.UserInputDTOToUser;
 import com.sos.facemash.DTO.mapper.UserToUserDetailDTO;
 import com.sos.facemash.DTO.mapper.UserToUserSummaryDTO;
 import com.sos.facemash.core.Exceptions.UserNotFoundException;
-import com.sos.facemash.core.Exceptions.WrongInputException;
 import com.sos.facemash.entity.User;
 import com.sos.facemash.persistance.UserDAO;
 import com.sos.facemash.service.UserService;
@@ -44,22 +43,13 @@ public class UserServiceImp implements UserService {
 
     @Override
     public UserDetailDTO createUser(UserInputDTO user) {
-        if (!validInput(user)) throw new WrongInputException();
         User insertUser = UserInputDTOToUser.map((user));
         return saveUser(insertUser);
 
     }
 
-
-    private boolean validInput(UserInputDTO user) {
-        return true;
-    }
-
     @Override
     public UserDetailDTO modifyUser(String userName, UserInputDTO user) {
-        if (!validInput(user)) {
-            throw new WrongInputException();
-        }
         User userToUpdate = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
         return saveUser(updateUser(userToUpdate, UserInputDTOToUser.map((user))));
     }
