@@ -34,7 +34,7 @@ public class User {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    private void setUserName(String userName) {
         this.userName = userName;
     }
 
@@ -42,7 +42,7 @@ public class User {
         return mail;
     }
 
-    public void setMail(String mail) {
+    private void setMail(String mail) {
         this.mail = mail;
     }
 
@@ -50,7 +50,7 @@ public class User {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    private void setPhone(int phone) {
         this.phone = phone;
     }
 
@@ -58,7 +58,7 @@ public class User {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -66,23 +66,23 @@ public class User {
         return lastName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastName = lastname;
+    private void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public List<User> getFriends() {
         return friends;
     }
 
-    public void setFriends(List<User> friends) {
+    private void setFriends(List<User> friends) {
         this.friends = friends;
     }
 
-    public List<Msg> getMessages() {
+    private List<Msg> getMessages() {
         return messages;
     }
 
-    public void setMessages(List<Msg> messages) {
+    private void setMessages(List<Msg> messages) {
         this.messages = messages;
     }
 
@@ -90,7 +90,7 @@ public class User {
         this.setMail(newUser.getMail());
         this.setPhone(newUser.getPhone());
         this.setName(newUser.getName());
-        this.setLastname(newUser.getLastName());
+        this.setLastName(newUser.getLastName());
         this.setFriends(newUser.getFriends());
         this.setMessages(newUser.getMessages());
         return this;
@@ -136,7 +136,7 @@ public class User {
             return this;
         }
 
-        public Builder setMesagges(List<Msg> messages) {
+        public Builder setMessages(List<Msg> messages) {
             this.messages = messages;
             return this;
         }
@@ -147,7 +147,7 @@ public class User {
             user.setMail(mail);
             user.setPhone(phone);
             user.setName(name);
-            user.setLastname(lastName);
+            user.setLastName(lastName);
             user.setFriends(friends);
             user.setMessages(messages);
             return user;

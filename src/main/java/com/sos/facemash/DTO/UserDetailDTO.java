@@ -24,7 +24,7 @@ public class UserDetailDTO {
         return mail;
     }
 
-    public void setMail(String mail) {
+    private void setMail(String mail) {
         this.mail = mail;
     }
 
@@ -32,7 +32,7 @@ public class UserDetailDTO {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    private void setPhone(int phone) {
         this.phone = phone;
     }
 
@@ -40,7 +40,7 @@ public class UserDetailDTO {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -48,7 +48,7 @@ public class UserDetailDTO {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    private void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
@@ -56,7 +56,7 @@ public class UserDetailDTO {
         return friends;
     }
 
-    public void setFriends(List<User> friends) {
+    private void setFriends(List<User> friends) {
         this.friends = friends;
     }
 

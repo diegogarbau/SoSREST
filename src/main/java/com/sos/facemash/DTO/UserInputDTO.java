@@ -1,10 +1,8 @@
 package com.sos.facemash.DTO;
 
-import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
 
-@Data
 public class UserInputDTO {
     @NotEmpty
     private String userName;

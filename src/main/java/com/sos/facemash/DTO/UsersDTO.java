@@ -18,8 +18,8 @@ public class UsersDTO {
         this.users = users;
     }
 
-    public UsersDTO insertAll(List<UserSummaryDTO> users) {
-        users.addAll(users);
+    public UsersDTO insertAll(List<UserSummaryDTO> newUsers) {
+        users.addAll(newUsers);
         return this;
     }
 }

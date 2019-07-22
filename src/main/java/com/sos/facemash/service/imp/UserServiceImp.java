@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImp implements UserService {
-    private final int PHONE_LENGHT = 9;
     private UserDAO userDAO;
 
     @Autowired
@@ -65,4 +64,5 @@ public class UserServiceImp implements UserService {
     public void deleteUser(String userName) {
         userDAO.delete(userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new));
     }
+
 }

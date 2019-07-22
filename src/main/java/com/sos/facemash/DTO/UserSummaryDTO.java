@@ -1,8 +1,5 @@
 package com.sos.facemash.DTO;
 
-import lombok.Data;
-
-@Data
 public class UserSummaryDTO {
 
     private String userName;

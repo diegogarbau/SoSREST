@@ -8,8 +8,8 @@ import io.swagger.annotations.ApiOperation;
 
 @Api(tags = "User")
 public interface UserController {
-    @ApiOperation(value = "User", notes = "Endpoint to get all the users", response = UsersDTO.class)
-    UsersDTO getAllUsers();
+    @ApiOperation(value = "User", notes = "Endpoint to get all the users by filter ", response = UsersDTO.class)
+    UsersDTO getAllUsers(String filter);
 
     @ApiOperation(value = "User", notes = "Endpoint to get an user by userName", response = UserDetailDTO.class)
     UserDetailDTO getUser(String userName);
