@@ -14,7 +14,6 @@ import com.sos.facemash.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.function.BiConsumer;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -51,10 +50,6 @@ public class UserServiceImp implements UserService {
 
     }
 
-    private UserDetailDTO saveUser(User user) {
-        return UserToUserDetailDTO.map(userDAO.save(user));
-    }
-
 
     private boolean validInput(UserInputDTO user) {
         return true;
@@ -62,64 +57,22 @@ public class UserServiceImp implements UserService {
 
     @Override
     public UserDetailDTO modifyUser(String userName, UserInputDTO user) {
-        if (!validInput(user)) throw new WrongInputException();
+        if (!validInput(user)) {
+            throw new WrongInputException();
+        }
         User userToUpdate = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
         return saveUser(updateUser(userToUpdate, UserInputDTOToUser.map((user))));
     }
 
-    public void deleteUser(String userName) {
-
+    private UserDetailDTO saveUser(User user) {
+        return UserToUserDetailDTO.map(userDAO.save(user));
     }
 
     private User updateUser(User oldUser, User newUser) {
-        Predicate<User> newMail = user -> (notNullOrBlank(user.getMail()));
-        Predicate<User> newName = user -> (notNullOrBlank(user.getName()));
-        Predicate<User> newLastName = user -> (notNullOrBlank(user.getLastName()));
-        Predicate<User> newPhone = user -> (validPhone(user.getPhone()));
-        BiConsumer<User, User> updatedMail = (a, b) -> a.setMail(b.getMail());
-        BiConsumer<User, User> updatedName = (a, b) -> a.setName(b.getName());
-        BiConsumer<User, User> updatedLastName = (a, b) -> a.setLastname(b.getLastName());
-        BiConsumer<User, User> updatedPhone = (a, b) -> a.setPhone(b.getPhone());
-
-        BiConsumer<User, User> userUserBiConsumer = this::accept;
-        userUserBiConsumer.accept(oldUser, newUser);
-
-        return oldUser;
+        return oldUser.updateUser(newUser);
     }
 
-    private void Update(Predicate predicate, BiConsumer consumer) {
-//        doSomething(someValue, this::customConsumerMethodThrowingAnException);
-
+    public void deleteUser(String userName) {
+        userDAO.delete(userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new));
     }
-
-
-//    interface Predicate{
-//        boolean check(User user);
-//    }
-
-    private boolean notNullOrBlank(String s) {
-        return (s != null && s != "");
-    }
-
-    private boolean validPhone(int s) {
-        return (String.valueOf(s).length() == PHONE_LENGHT);
-    }
-
-    private void accept(User a, User b) {
-        if (notNullOrBlank(b.getMail())) {
-            a.setMail(b.getMail());
-        }
-    }
-
-    @FunctionalInterface
-    public interface ThrowingConsumer<T> {
-        void accept(T t);
-    }
-
-//    public <T, R> void doSomething(T value, ThrowingConsumer<T, R> consumer) {
-//        // ...
-//    }
-//    BiFunction : salaries.replaceAll((name, oldValue) -> name.equals("Freddy") ? oldValue : oldValue + 10000);
-//BiFunction<User, User, User> replace = (a, b) -> a.setMail(b.getMail());
-
 }

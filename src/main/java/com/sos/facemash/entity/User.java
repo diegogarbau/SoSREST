@@ -86,6 +86,16 @@ public class User {
         this.messages = messages;
     }
 
+    public User updateUser (User newUser){
+        this.setMail(newUser.getMail());
+        this.setPhone(newUser.getPhone());
+        this.setName(newUser.getName());
+        this.setLastname(newUser.getLastName());
+        this.setFriends(newUser.getFriends());
+        this.setMessages(newUser.getMessages());
+        return this;
+    }
+
 
     public static class Builder {
         private String userName;
