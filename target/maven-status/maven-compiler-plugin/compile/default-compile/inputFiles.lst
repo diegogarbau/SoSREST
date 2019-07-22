@@ -1,0 +1,17 @@
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\DTO\mapper\UserInputDTOToUser.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\DTO\UserSummaryDTO.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\core\Exceptions\WrongInputException.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\service\Predicate.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\DTO\UserDetailDTO.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\DTO\mapper\UserToUserSummaryDTO.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\core\Exceptions\UserNotFoundException.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\DTO\mapper\UserToUserDetailDTO.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\DTO\UserInputDTO.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\DTO\UsersDTO.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\FacemashApplication.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\entity\Msg.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\service\UserService.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\service\imp\UserServiceImp.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\persistance\UserDAO.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\entity\User.java
+C:\DEV\Projects\UDEMI\facemash\src\main\java\com\sos\facemash\persistance\MsgDAO.java
