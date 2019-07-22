@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class UserControllerImpl implements UserController {
 
@@ -55,5 +57,26 @@ public class UserControllerImpl implements UserController {
     @Override
     public void deleteUser(@PathVariable("userName") String userName) {
         userService.deleteUser(userName);
+    }
+
+    @Override
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("/user/{userName}/friend/{friendUserName}")
+    public UsersDTO addFriend(@PathVariable("userName") String userName,@PathVariable("friendUserName")  String friendUserName) {
+        return userService.addFriend( userName, friendUserName);
+    }
+
+    @Override
+    @ResponseStatus(HttpStatus.OK)
+    @PutMapping("/user/{userName}/friends/")
+    public UsersDTO addFriendsList(@PathVariable("userName") String userName,@RequestBody List<String> friendsList) {
+        return userService.addFriends( userName, friendsList);
+    }
+
+    @Override
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping("/user/{userName}/friend/{friendUserName}")
+    public UsersDTO deleteFriend(@PathVariable("userName") String userName,@PathVariable("friendUserName")  String friendUserName) {
+        return userService.deleteFriend( userName, friendUserName);
     }
 }

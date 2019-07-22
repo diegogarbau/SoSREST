@@ -4,6 +4,8 @@ import com.sos.facemash.DTO.UserDetailDTO;
 import com.sos.facemash.DTO.UserInputDTO;
 import com.sos.facemash.DTO.UsersDTO;
 
+import java.util.List;
+
 public interface UserService {
     UsersDTO getAllUsers(String filter);
 
@@ -15,4 +17,9 @@ public interface UserService {
 
     void deleteUser(String userName);
 
+    UsersDTO addFriend(String userName, String friendUserName);
+
+    UsersDTO addFriends(String userName, List<String> friendsList);
+
+    UsersDTO deleteFriend(String userName, String friendUserName);
 }

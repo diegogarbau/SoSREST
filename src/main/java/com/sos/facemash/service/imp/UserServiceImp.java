@@ -13,6 +13,7 @@ import com.sos.facemash.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -65,4 +66,37 @@ public class UserServiceImp implements UserService {
         userDAO.delete(userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new));
     }
 
+    @Override
+    public UsersDTO addFriend(String userName, String friendUserName) {
+        User user = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
+        makeFriends(user, friendUserName);
+        return getFriends(userDAO.save(user));
+    }
+
+    @Override
+    public UsersDTO addFriends(String userName, List<String> friendsList) {
+        User user = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
+        friendsList.forEach(friend -> makeFriends(user, friend));
+        return getFriends(userDAO.save(user));
+    }
+
+    @Override
+    public UsersDTO deleteFriend(String userName, String friendUserName) {
+        User user = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
+        User friend = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
+        user.getFriends().remove(friend);
+        return getFriends(userDAO.save(user));
+    }
+
+    private void makeFriends(User user, String friendUserName) {
+        User newFriend = userDAO.findByUser(friendUserName).orElseThrow(UserNotFoundException::new);
+        if (!user.getFriends().contains(newFriend))
+            user.getFriends().add(newFriend);
+    }
+    private UsersDTO getFriends(User user) {
+        return new UsersDTO().insertAll(user.getFriends()
+                .stream()
+                .map(UserToUserSummaryDTO::map)
+                .collect(Collectors.toList()));
+    }
 }
