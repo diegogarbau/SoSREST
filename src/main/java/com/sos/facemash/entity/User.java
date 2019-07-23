@@ -7,28 +7,16 @@ import java.util.List;
 @Table(name = "users")
 public class User {
     @Id
-    @Column(name = "user_Name")
     private String userName;
-    @Column(name = "mail")
     private String mail;
-    @Column(name = "phone")
     private int phone;
-    @Column(name = "name")
     private String name;
-    @Column(name = "last_Name")
     private String lastName;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "friends",
-            joinColumns = @JoinColumn(name = "users.user_Name"),
-            inverseJoinColumns = @JoinColumn(name = "users.user_Name"))
-    private List<User> friends;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "messages",
-            joinColumns = @JoinColumn(name = "users.user_Name"),
-            inverseJoinColumns = @JoinColumn(name = "messages.id"))
-    private List<Msg> messages;
+    private List<String> friends;
+    private List<Long> messages;
+
+    private User() {
+    }
 
     public String getUserName() {
         return userName;
@@ -70,19 +58,19 @@ public class User {
         this.lastName = lastName;
     }
 
-    public List<User> getFriends() {
+    public List<String> getFriends() {
         return friends;
     }
 
-    private void setFriends(List<User> friends) {
+    private void setFriends(List<String> friends) {
         this.friends = friends;
     }
 
-    private List<Msg> getMessages() {
+    private List<Long> getMessages() {
         return messages;
     }
 
-    private void setMessages(List<Msg> messages) {
+    private void setMessages(List<Long> messages) {
         this.messages = messages;
     }
 
@@ -103,8 +91,8 @@ public class User {
         private int phone;
         private String name;
         private String lastName;
-        private List<User> friends;
-        private List<Msg> messages;
+        private List<String> friends;
+        private List<Long> messages;
 
         public Builder setUserName(String userName) {
             this.userName = userName;
@@ -131,12 +119,12 @@ public class User {
             return this;
         }
 
-        public Builder setFriends(List<User> friends) {
+        public Builder setFriends(List<String> friends) {
             this.friends = friends;
             return this;
         }
 
-        public Builder setMessages(List<Msg> messages) {
+        public Builder setMessages(List<Long> messages) {
             this.messages = messages;
             return this;
         }

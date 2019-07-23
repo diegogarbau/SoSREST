@@ -2,10 +2,12 @@ package com.sos.facemash.service.imp;
 
 import com.sos.facemash.DTO.UserDetailDTO;
 import com.sos.facemash.DTO.UserInputDTO;
+import com.sos.facemash.DTO.UserSummaryDTO;
 import com.sos.facemash.DTO.UsersDTO;
 import com.sos.facemash.DTO.mapper.UserInputDTOToUser;
 import com.sos.facemash.DTO.mapper.UserToUserDetailDTO;
 import com.sos.facemash.DTO.mapper.UserToUserSummaryDTO;
+import com.sos.facemash.core.Exceptions.DuplicatedException;
 import com.sos.facemash.core.Exceptions.UserNotFoundException;
 import com.sos.facemash.entity.User;
 import com.sos.facemash.persistance.UserDAO;
@@ -43,6 +45,8 @@ public class UserServiceImp implements UserService {
 
     @Override
     public UserDetailDTO createUser(UserInputDTO user) {
+        if (userDAO.findByUser(user.getUserName()).isPresent())
+            throw new DuplicatedException("Ya Existe ese usuario");
         User insertUser = UserInputDTOToUser.map((user));
         return saveUser(insertUser);
 
@@ -70,14 +74,14 @@ public class UserServiceImp implements UserService {
     public UsersDTO addFriend(String userName, String friendUserName) {
         User user = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
         makeFriends(user, friendUserName);
-        return getFriends(userDAO.save(user));
+        return getFriendsList(userDAO.save(user));
     }
 
     @Override
     public UsersDTO addFriends(String userName, List<String> friendsList) {
         User user = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
         friendsList.forEach(friend -> makeFriends(user, friend));
-        return getFriends(userDAO.save(user));
+        return getFriendsList(userDAO.save(user));
     }
 
     @Override
@@ -85,18 +89,23 @@ public class UserServiceImp implements UserService {
         User user = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
         User friend = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
         user.getFriends().remove(friend);
-        return getFriends(userDAO.save(user));
+        return getFriendsList(userDAO.save(user));
+    }
+
+    @Override
+    public UsersDTO getFriends(String userName) {
+        return getFriendsList(userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new));
     }
 
     private void makeFriends(User user, String friendUserName) {
         User newFriend = userDAO.findByUser(friendUserName).orElseThrow(UserNotFoundException::new);
-        if (!user.getFriends().contains(newFriend))
-            user.getFriends().add(newFriend);
+        if (!user.getFriends().contains(newFriend.getUserName()))
+            user.getFriends().add(newFriend.getUserName());
     }
-    private UsersDTO getFriends(User user) {
+    private UsersDTO getFriendsList(User user) {
         return new UsersDTO().insertAll(user.getFriends()
                 .stream()
-                .map(UserToUserSummaryDTO::map)
+                .map(string -> new UserSummaryDTO.Builder().setUserName(string).build())
                 .collect(Collectors.toList()));
     }
 }

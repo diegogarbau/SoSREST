@@ -14,6 +14,9 @@ public class UserInputDTO {
     @NotEmpty
     private String lastName;
 
+    private UserInputDTO() {
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -52,5 +55,49 @@ public class UserInputDTO {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public static class Builder {
+        private String userName;
+        private String mail;
+        private int phone;
+        private String name;
+        private String lastName;
+
+        public Builder setUserName(String userName) {
+            this.userName = userName;
+            return this;
+        }
+
+        public Builder setMail(String mail) {
+            this.mail = mail;
+            return this;
+        }
+
+        public Builder setPhone(int phone) {
+            this.phone = phone;
+            return this;
+        }
+
+        public Builder setName(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder setLastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+
+        public UserInputDTO build() {
+            UserInputDTO user = new UserInputDTO();
+            user.setUserName(userName);
+            user.setMail(mail);
+            user.setPhone(phone);
+            user.setName(name);
+            user.setLastName(lastName);
+            return user;
+        }
     }
 }

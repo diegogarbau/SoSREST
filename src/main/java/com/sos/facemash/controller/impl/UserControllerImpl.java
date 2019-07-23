@@ -79,4 +79,11 @@ public class UserControllerImpl implements UserController {
     public UsersDTO deleteFriend(@PathVariable("userName") String userName,@PathVariable("friendUserName")  String friendUserName) {
         return userService.deleteFriend( userName, friendUserName);
     }
+
+    @Override
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/user/{userName}/friends/")
+    public UsersDTO getAllFriend(@PathVariable("userName")  String userName) {
+        return userService.getFriends(userName);
+    }
 }

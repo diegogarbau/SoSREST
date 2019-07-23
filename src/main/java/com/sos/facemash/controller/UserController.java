@@ -35,4 +35,8 @@ public interface UserController {
     UsersDTO deleteFriend(String userName,String friendUserName );
 
 
+    @ApiOperation(value = "User", notes = "Endpoint to get friend list of User")
+    UsersDTO getAllFriend(String userName);
+
+
 }

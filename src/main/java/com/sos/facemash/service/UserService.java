@@ -22,4 +22,6 @@ public interface UserService {
     UsersDTO addFriends(String userName, List<String> friendsList);
 
     UsersDTO deleteFriend(String userName, String friendUserName);
+
+    UsersDTO getFriends(String userName);
 }
