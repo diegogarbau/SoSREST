@@ -2,7 +2,6 @@ package com.sos.facemash.service.imp;
 
 import com.sos.facemash.DTO.UserDetailDTO;
 import com.sos.facemash.DTO.UserInputDTO;
-import com.sos.facemash.DTO.UserSummaryDTO;
 import com.sos.facemash.DTO.UsersDTO;
 import com.sos.facemash.DTO.mapper.UserInputDTOToUser;
 import com.sos.facemash.DTO.mapper.UserToUserDetailDTO;
@@ -38,14 +37,19 @@ public class UserServiceImp implements UserService {
                 .collect(Collectors.toList()));
     }
 
+    public User getUser(String userName) {
+        return userDAO.findByUserName(userName).orElseThrow(()
+                -> new UserNotFoundException("El usuario no figura en la base de datos"));
+    }
+
     @Override
-    public UserDetailDTO getUser(String userName) {
-        return UserToUserDetailDTO.map(userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new));
+    public UserDetailDTO getUserDetail(String userName) {
+        return UserToUserDetailDTO.map(getUser(userName));
     }
 
     @Override
     public UserDetailDTO createUser(UserInputDTO user) {
-        if (userDAO.findByUser(user.getUserName()).isPresent())
+        if (userDAO.findByUserName(user.getUserName()).isPresent())
             throw new DuplicatedException("Ya Existe ese usuario");
         User insertUser = UserInputDTOToUser.map((user));
         return saveUser(insertUser);
@@ -54,7 +58,8 @@ public class UserServiceImp implements UserService {
 
     @Override
     public UserDetailDTO modifyUser(String userName, UserInputDTO user) {
-        User userToUpdate = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
+        User userToUpdate = userDAO.findByUserName(userName).orElseThrow(()
+                -> new UserNotFoundException("El usuario no figura en la base de datos"));
         return saveUser(updateUser(userToUpdate, UserInputDTOToUser.map((user))));
     }
 
@@ -67,45 +72,53 @@ public class UserServiceImp implements UserService {
     }
 
     public void deleteUser(String userName) {
-        userDAO.delete(userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new));
+        userDAO.delete(userDAO.findByUserName(userName).orElseThrow(()
+                -> new UserNotFoundException("El usuario no figura en la base de datos")));
     }
 
     @Override
     public UsersDTO addFriend(String userName, String friendUserName) {
-        User user = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
+        User user = userDAO.findByUserName(userName).orElseThrow(()
+                -> new UserNotFoundException("El usuario no figura en la base de datos"));
         makeFriends(user, friendUserName);
         return getFriendsList(userDAO.save(user));
     }
 
     @Override
     public UsersDTO addFriends(String userName, List<String> friendsList) {
-        User user = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
+        User user = userDAO.findByUserName(userName).orElseThrow(()
+                -> new UserNotFoundException("El usuario no figura en la base de datos"));
         friendsList.forEach(friend -> makeFriends(user, friend));
         return getFriendsList(userDAO.save(user));
     }
 
     @Override
     public UsersDTO deleteFriend(String userName, String friendUserName) {
-        User user = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
-        User friend = userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new);
+        User user = userDAO.findByUserName(userName).orElseThrow(()
+                -> new UserNotFoundException("El usuario no figura en la base de datos"));
+        User friend = userDAO.findByUserName(userName).orElseThrow(()
+                -> new UserNotFoundException("El usuario no figura en la base de datos"));
         user.getFriends().remove(friend);
         return getFriendsList(userDAO.save(user));
     }
 
     @Override
     public UsersDTO getFriends(String userName) {
-        return getFriendsList(userDAO.findByUser(userName).orElseThrow(UserNotFoundException::new));
+        return getFriendsList(userDAO.findByUserName(userName).orElseThrow(()
+                -> new UserNotFoundException("El usuario no figura en la base de datos")));
     }
 
     private void makeFriends(User user, String friendUserName) {
-        User newFriend = userDAO.findByUser(friendUserName).orElseThrow(UserNotFoundException::new);
-        if (!user.getFriends().contains(newFriend.getUserName()))
-            user.getFriends().add(newFriend.getUserName());
+        User newFriend = userDAO.findByUserName(friendUserName).orElseThrow(()
+                -> new UserNotFoundException("El usuario no figura en la base de datos"));
+        if (!user.getFriends().contains(newFriend))
+            user.getFriends().add(newFriend);
     }
+
     private UsersDTO getFriendsList(User user) {
         return new UsersDTO().insertAll(user.getFriends()
                 .stream()
-                .map(string -> new UserSummaryDTO.Builder().setUserName(string).build())
+                .map(UserToUserSummaryDTO::map)
                 .collect(Collectors.toList()));
     }
 }

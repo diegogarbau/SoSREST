@@ -33,7 +33,7 @@ public class UserControllerImpl implements UserController {
     @GetMapping("/user/{userName}/")
     @Override
     public UserDetailDTO getUser(@PathVariable("userName") String userName) {
-        return userService.getUser(userName);
+        return userService.getUserDetail(userName);
     }
 
     @ResponseStatus(HttpStatus.CREATED)

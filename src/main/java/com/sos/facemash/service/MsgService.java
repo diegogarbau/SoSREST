@@ -8,11 +8,11 @@ import com.sos.facemash.DTO.UserInputDTO;
 public interface MsgService {
     MsgssDTO getAllMsg(String userName, String filter);
 
-    MsgDetailDTO getMsg(String userName, String msgId);
+    MsgDetailDTO getMsg(String userName, Long msgId);
 
     MsgDetailDTO createMsg(String userName, MsgInputDTO msgInputDTO);
 
-    MsgDetailDTO modifyMsg(String userName, String msgId, UserInputDTO msgInputDTO);
+    MsgDetailDTO modifyMsg(String userName, Long msgId, MsgInputDTO msgInputDTO);
 
-    void deleteMsg(String userName, String msgId);
+    void deleteMsg(String userName, Long msgId);
 }

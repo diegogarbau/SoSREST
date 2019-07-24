@@ -9,7 +9,7 @@ import java.util.Optional;
 
 public interface UserDAO extends CrudRepository <User, String> {
 
-    Optional<User> findByUser(String userName);
+    Optional<User> findByUserName(String userName);
 
     List<User> findAll();
 }

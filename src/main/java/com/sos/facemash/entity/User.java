@@ -12,8 +12,45 @@ public class User {
     private int phone;
     private String name;
     private String lastName;
-    private List<String> friends;
-    private List<Long> messages;
+    //========
+
+    @ManyToMany
+    @JoinTable(name="friends",
+            joinColumns=@JoinColumn(name="userName"),
+            inverseJoinColumns=@JoinColumn(name="friendId"))
+    private List<User> friends;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name="friends",
+            joinColumns=@JoinColumn(name="friendId"),
+            inverseJoinColumns=@JoinColumn(name="userName"))
+    private List<User> friendOf;
+    //========
+
+
+
+
+
+
+
+
+
+
+
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "messagesSent",
+            joinColumns = @JoinColumn(name = "users_userName"),
+            inverseJoinColumns = @JoinColumn(name = "messages_id"))
+    private List<Msg> messagesSent;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "messagesReceived",
+            joinColumns = @JoinColumn(name = "users_userName"),
+            inverseJoinColumns = @JoinColumn(name = "messages_id"))
+    private List<Msg> messagesReceived;
+
 
     private User() {
     }
@@ -58,29 +95,36 @@ public class User {
         this.lastName = lastName;
     }
 
-    public List<String> getFriends() {
+    public List<User> getFriends() {
         return friends;
     }
 
-    private void setFriends(List<String> friends) {
+    private void setFriends(List<User> friends) {
         this.friends = friends;
     }
 
-    private List<Long> getMessages() {
-        return messages;
+    private List<Msg> getMessagesSent() {
+        return messagesSent;
     }
 
-    private void setMessages(List<Long> messages) {
-        this.messages = messages;
+    private void setMessagesSent(List<Msg> messagesSent) {
+        this.messagesSent = messagesSent;
+    }
+    public List<Msg> getMessagesReceived() {
+        return messagesReceived;
     }
 
-    public User updateUser (User newUser){
+    public void setMessagesReceived(List<Msg> messagesReceived) {
+        this.messagesReceived = messagesReceived;
+    }
+
+    public User updateUser(User newUser) {
         this.setMail(newUser.getMail());
         this.setPhone(newUser.getPhone());
         this.setName(newUser.getName());
         this.setLastName(newUser.getLastName());
         this.setFriends(newUser.getFriends());
-        this.setMessages(newUser.getMessages());
+        this.setMessagesSent(newUser.getMessagesSent());
         return this;
     }
 
@@ -91,8 +135,10 @@ public class User {
         private int phone;
         private String name;
         private String lastName;
-        private List<String> friends;
-        private List<Long> messages;
+        private List<User> friends;
+        private List<Msg> messagesSent;
+        private List<Msg> messagesReceived;
+
 
         public Builder setUserName(String userName) {
             this.userName = userName;
@@ -119,13 +165,18 @@ public class User {
             return this;
         }
 
-        public Builder setFriends(List<String> friends) {
+        public Builder setFriends(List<User> friends) {
             this.friends = friends;
             return this;
         }
 
-        public Builder setMessages(List<Long> messages) {
-            this.messages = messages;
+        public Builder setMessagesSent(List<Msg> messagesSent) {
+            this.messagesReceived = messagesSent;
+            return this;
+        }
+
+        public Builder setMessagesReceived(List<Msg> messagesReceived) {
+            this.messagesReceived = messagesReceived;
             return this;
         }
 
@@ -137,7 +188,8 @@ public class User {
             user.setName(name);
             user.setLastName(lastName);
             user.setFriends(friends);
-            user.setMessages(messages);
+            user.setMessagesSent(messagesSent);
+            user.setMessagesReceived(messagesReceived);
             return user;
         }
     }

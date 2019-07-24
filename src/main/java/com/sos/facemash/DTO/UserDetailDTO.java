@@ -10,7 +10,7 @@ public class UserDetailDTO {
     private int phone;
     private String name;
     private String lastName;
-    private List<String> friends;
+    private List<User> friends;
 
     public String getUserName() {
         return userName;

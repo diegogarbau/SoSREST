@@ -2,7 +2,7 @@ package com.sos.facemash.entity;
 
 
 import javax.persistence.*;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Table(name = "messages")
@@ -10,12 +10,16 @@ public class Msg {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String title;
     private String body;
     @Temporal(TemporalType.TIMESTAMP)
-    private LocalDate date;
-    @Column(nullable = false)
-    private String idOwner;
-    private String idDestination;
+    private Date date;
+    @ManyToOne
+    @JoinColumn(name = "messagesOwner", nullable = false)
+    private User owner;
+    @ManyToOne
+    @JoinColumn(name = "messagesReceived")
+    private User destination;
 
     public Long getId() {
         return id;
@@ -23,6 +27,14 @@ public class Msg {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getBody() {
@@ -33,39 +45,53 @@ public class Msg {
         this.body = body;
     }
 
-    public LocalDate getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
-    public String getIdOwner() {
-        return idOwner;
+    public User getOwner() {
+        return owner;
     }
 
-    public void setIdOwner(String idOwner) {
-        this.idOwner = idOwner;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
-    public String getIdDestination() {
-        return idDestination;
+    public User getDestination() {
+        return destination;
     }
 
-    public void setIdDestination(String idDestination) {
-        this.idDestination = idDestination;
+    public void setDestination(User destination) {
+        this.destination = destination;
     }
 
-    public static class Builder{
+    public Msg updateMsg(Msg msg) {
+        this.setTitle(msg.getTitle());
+        this.setBody(msg.getBody());
+        this.setDate(msg.getDate());
+        return this;
+    }
+
+
+    public static class Builder {
         private Long id;
+        private String title;
         private String body;
-        private LocalDate date;
-        private String idOwner;
-        private String idDestination;
+        private Date date;
+        private User owner;
+        private User destination;
 
         public Builder setId(Long id) {
             this.id = id;
+            return this;
+        }
+
+        public Builder setTitle(String title) {
+            this.title = title;
             return this;
         }
 
@@ -74,27 +100,29 @@ public class Msg {
             return this;
         }
 
-        public Builder setDate(LocalDate date) {
+        public Builder setDate(Date date) {
             this.date = date;
             return this;
         }
 
-        public Builder setIdOwner(String idOwner) {
-            this.idOwner = idOwner;
+        public Builder setOwner(User owner) {
+            this.owner = owner;
             return this;
         }
 
-        public Builder setIdDestination(String idDestination) {
-            this.idDestination = idDestination;
+        public Builder setDestination(User destination) {
+            this.destination = destination;
             return this;
         }
-        public Msg build(){
+
+        public Msg build() {
             Msg msg = new Msg();
             msg.setId(id);
+            msg.setTitle(title);
             msg.setBody(body);
             msg.setDate(date);
-            msg.setIdDestination(idDestination);
-            msg.setIdOwner(idOwner);
+            msg.setDestination(destination);
+            msg.setOwner(owner);
             return msg;
 
         }

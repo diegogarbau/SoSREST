@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 public class MsgControllerImpl implements MsgController {
     private MsgService msgService;
@@ -29,28 +31,28 @@ public class MsgControllerImpl implements MsgController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/{userName}/message/{msgId}/")
     @Override
-    public MsgDetailDTO getMessage(@PathVariable("userName") String userName, @PathVariable("msgId") String msgId) {
+    public MsgDetailDTO getMessage(@PathVariable("userName") String userName, @PathVariable("msgId") Long msgId) {
         return msgService.getMsg(userName, msgId);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/{userName}/message/")
     @Override
-    public MsgDetailDTO createMsg(@PathVariable("userName") String userName, @RequestBody MsgInputDTO msgInputDTO) {
+    public MsgDetailDTO createMsg(@PathVariable("userName") String userName, @RequestBody @Valid MsgInputDTO msgInputDTO) {
         return msgService.createMsg(userName, msgInputDTO);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/{userName}/message/{msgId}/")
     @Override
-    public MsgDetailDTO modifyMsg(@PathVariable("userName") String userName, @PathVariable("msgId") String msgId, @RequestBody UserInputDTO msgInputDTO) {
+    public MsgDetailDTO modifyMsg(@PathVariable("userName") String userName, @PathVariable("msgId") Long msgId, @RequestBody @Valid MsgInputDTO msgInputDTO) {
         return msgService.modifyMsg(userName, msgId, msgInputDTO);
     }
 
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/{userName}/message/{msgId}/")
     @Override
-    public void deleteMsg(@PathVariable("userName") String userName, @PathVariable("msgId") String msgId) {
+    public void deleteMsg(@PathVariable("userName") String userName, @PathVariable("msgId") Long msgId) {
         msgService.deleteMsg(userName, msgId);
     }
 
