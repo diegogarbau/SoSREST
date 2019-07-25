@@ -12,8 +12,7 @@ public class MsgInputDTOToMsg {
                 .setTitle(msgDTO.getTitle())
                 .setBody(msgDTO.getBody())
                 .setDate(msgDTO.getDate())
-                .setDestination(msgDTO.getIdDestination())
-                .setOwner(msgDTO.getIdOwner())
+                .setDestination(msgDTO.getDestination())
                 .build();
     }
 }

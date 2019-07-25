@@ -1,5 +1,6 @@
 package com.sos.facemash.DTO;
 
+import com.sos.facemash.entity.Msg;
 import com.sos.facemash.entity.User;
 
 import java.util.List;
@@ -11,6 +12,8 @@ public class UserDetailDTO {
     private String name;
     private String lastName;
     private List<User> friends;
+    private List<Msg> messagesSent;
+    private List<Msg> messagesReceived;
 
     public String getUserName() {
         return userName;
@@ -60,6 +63,21 @@ public class UserDetailDTO {
         this.friends = friends;
     }
 
+    public List<Msg> getMessagesSent() {
+        return messagesSent;
+    }
+
+    public void setMessagesSent(List<Msg> messagesSent) {
+        this.messagesSent = messagesSent;
+    }
+
+    public List<Msg> getMessagesReceived() {
+        return messagesReceived;
+    }
+
+    public void setMessagesReceived(List<Msg> messagesReceived) {
+        this.messagesReceived = messagesReceived;
+    }
     public static class Builder {
         private String userName;
         private String mail;
@@ -67,6 +85,8 @@ public class UserDetailDTO {
         private String name;
         private String lastName;
         private List<User> friends;
+        private List<Msg> messagesSent;
+        private List<Msg> messagesReceived;
 
         public Builder setUserName(String userName) {
             this.userName = userName;
@@ -98,6 +118,15 @@ public class UserDetailDTO {
             return this;
         }
 
+        public Builder setMessagesReceived(List<Msg> messagesReceived) {
+            this.messagesReceived = messagesReceived;
+            return this;
+        }
+        public Builder setMessagesSent(List<Msg> messagesSent) {
+            this.messagesSent = messagesSent;
+            return this;
+        }
+
         public UserDetailDTO build() {
             UserDetailDTO userDetailDTO = new UserDetailDTO();
             userDetailDTO.setUserName(userName);
@@ -106,6 +135,8 @@ public class UserDetailDTO {
             userDetailDTO.setName(name);
             userDetailDTO.setLastName(lastName);
             userDetailDTO.setFriends(friends);
+            userDetailDTO.setMessagesSent(messagesSent);
+            userDetailDTO.setMessagesReceived(messagesReceived);
             return userDetailDTO;
         }
     }

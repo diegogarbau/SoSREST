@@ -46,9 +46,15 @@ public class UserUtils {
                 .build();
     }
 
-    public List<User> userListGenerator() {
+    public static List<User> userRandomListGenerator() {
         return IntStream.rangeClosed(0, random.nextInt(8) + 1)
                 .mapToObj(i -> UserRandomGenerator())
+                .collect(Collectors.toList());
+    }
+
+    public static List<User> userRandomListGenerator(String common) {
+        return IntStream.rangeClosed(0, random.nextInt(8) + 1)
+                .mapToObj(i -> UserRandomGenerator(common))
                 .collect(Collectors.toList());
     }
 

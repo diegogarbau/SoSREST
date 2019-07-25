@@ -2,6 +2,7 @@ package com.sos.facemash.entity;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "users")
@@ -12,7 +13,6 @@ public class User {
     private int phone;
     private String name;
     private String lastName;
-    //========
 
     @ManyToMany
     @JoinTable(name="friends",
@@ -25,17 +25,6 @@ public class User {
             joinColumns=@JoinColumn(name="friendId"),
             inverseJoinColumns=@JoinColumn(name="userName"))
     private List<User> friendOf;
-    //========
-
-
-
-
-
-
-
-
-
-
 
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -103,6 +92,13 @@ public class User {
         this.friends = friends;
     }
 
+    public List<User> getFriendOf() {
+        return friendOf;
+    }
+
+    public void setFriendOf(List<User> friendOf) {
+        this.friendOf = friendOf;
+    }
     private List<Msg> getMessagesSent() {
         return messagesSent;
     }
@@ -128,6 +124,18 @@ public class User {
         return this;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof User)) return false;
+        User user = (User) o;
+        return getUserName().equals(user.getUserName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getUserName());
+    }
 
     public static class Builder {
         private String userName;
@@ -136,6 +144,9 @@ public class User {
         private String name;
         private String lastName;
         private List<User> friends;
+        private List<User> friendOf;
+
+
         private List<Msg> messagesSent;
         private List<Msg> messagesReceived;
 
@@ -167,6 +178,10 @@ public class User {
 
         public Builder setFriends(List<User> friends) {
             this.friends = friends;
+            return this;
+        }
+        public Builder setFriendOf(List<User> friendOf) {
+            this.friendOf = friendOf;
             return this;
         }
 

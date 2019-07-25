@@ -6,7 +6,7 @@ import com.sos.facemash.entity.User;
 import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
-@JsonPropertyOrder({"title", "year", "genre", "cast"})
+@JsonPropertyOrder({"title", "body", "date", "destination"})
 public class MsgInputDTO {
     @NotEmpty
     private String title;
@@ -14,8 +14,6 @@ public class MsgInputDTO {
     private String body;
     @NotEmpty
     private Date date;
-    @NotEmpty
-    private User owner;
     private User destination;
 
     public String getTitle() {
@@ -42,15 +40,7 @@ public class MsgInputDTO {
         this.date = date;
     }
 
-    public User getIdOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
-
-    public User getIdDestination() {
+    public User getDestination() {
         return destination;
     }
 
@@ -61,8 +51,13 @@ public class MsgInputDTO {
     public static class Builder {
         private String body;
         private Date date;
-        private User owner;
         private User destination;
+        private String title;
+
+        public Builder setTitle(String title) {
+            this.title = title;
+            return this;
+        }
 
         public Builder setBody(String body) {
             this.body = body;
@@ -74,22 +69,18 @@ public class MsgInputDTO {
             return this;
         }
 
-        public Builder setIdOwner(User idOwner) {
-            this.owner = owner;
-            return this;
-        }
 
-        public Builder setDestination(User Destination) {
-            this.destination = Destination;
+        public Builder setDestination(User destination) {
+            this.destination = destination;
             return this;
         }
 
         public MsgDetailDTO build() {
             MsgDetailDTO msgDTO = new MsgDetailDTO();
+            msgDTO.setTitle(title);
             msgDTO.setBody(body);
             msgDTO.setDate(date);
             msgDTO.setDestination(destination);
-            msgDTO.setOwner(owner);
             return msgDTO;
         }
     }
