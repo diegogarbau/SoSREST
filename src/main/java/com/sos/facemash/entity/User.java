@@ -24,8 +24,7 @@ public class User {
     @JoinTable(name="friends",
             joinColumns=@JoinColumn(name="friendId"),
             inverseJoinColumns=@JoinColumn(name="userName"))
-    private List<User> friendOf;
-
+    private List<User> friendsOf;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -93,11 +92,11 @@ public class User {
     }
 
     public List<User> getFriendOf() {
-        return friendOf;
+        return friendsOf;
     }
 
-    public void setFriendOf(List<User> friendOf) {
-        this.friendOf = friendOf;
+    public void setFriendsOf(List<User> friendsOf) {
+        this.friendsOf = friendsOf;
     }
     private List<Msg> getMessagesSent() {
         return messagesSent;
@@ -119,8 +118,6 @@ public class User {
         this.setPhone(newUser.getPhone());
         this.setName(newUser.getName());
         this.setLastName(newUser.getLastName());
-        this.setFriends(newUser.getFriends());
-        this.setMessagesSent(newUser.getMessagesSent());
         return this;
     }
 
@@ -144,9 +141,7 @@ public class User {
         private String name;
         private String lastName;
         private List<User> friends;
-        private List<User> friendOf;
-
-
+        private List<User> friendsOf;
         private List<Msg> messagesSent;
         private List<Msg> messagesReceived;
 
@@ -180,13 +175,13 @@ public class User {
             this.friends = friends;
             return this;
         }
-        public Builder setFriendOf(List<User> friendOf) {
-            this.friendOf = friendOf;
+        public Builder setFriendsOf(List<User> friendsOf) {
+            this.friendsOf = friendsOf;
             return this;
         }
 
         public Builder setMessagesSent(List<Msg> messagesSent) {
-            this.messagesReceived = messagesSent;
+            this.messagesSent = messagesSent;
             return this;
         }
 
@@ -203,6 +198,7 @@ public class User {
             user.setName(name);
             user.setLastName(lastName);
             user.setFriends(friends);
+            user.setFriendsOf(friendsOf);
             user.setMessagesSent(messagesSent);
             user.setMessagesReceived(messagesReceived);
             return user;

@@ -80,7 +80,9 @@ public class UserServiceImp implements UserService {
     public UsersDTO addFriend(String userName, String friendUserName) {
         User user = userDAO.findByUserName(userName).orElseThrow(()
                 -> new UserNotFoundException("El usuario no figura en la base de datos"));
-        makeFriends(user, friendUserName);
+        User newFriend = userDAO.findByUserName(friendUserName).orElseThrow(()
+                -> new UserNotFoundException("El usuario no figura en la base de datos"));
+        makeFriends(user, newFriend);
         return getFriendsList(userDAO.save(user));
     }
 
@@ -88,7 +90,10 @@ public class UserServiceImp implements UserService {
     public UsersDTO addFriends(String userName, List<String> friendsList) {
         User user = userDAO.findByUserName(userName).orElseThrow(()
                 -> new UserNotFoundException("El usuario no figura en la base de datos"));
-        friendsList.forEach(friend -> makeFriends(user, friend));
+        friendsList
+                .forEach(friend ->
+                   userDAO.findByUserName(friend).ifPresent( userFriend -> makeFriends(user,userFriend)));
+
         return getFriendsList(userDAO.save(user));
     }
 
@@ -108,9 +113,7 @@ public class UserServiceImp implements UserService {
                 -> new UserNotFoundException("El usuario no figura en la base de datos")));
     }
 
-    private void makeFriends(User user, String friendUserName) {
-        User newFriend = userDAO.findByUserName(friendUserName).orElseThrow(()
-                -> new UserNotFoundException("El usuario no figura en la base de datos"));
+    private void makeFriends(User user, User newFriend) {
         if (!user.getFriends().contains(newFriend))
             user.getFriends().add(newFriend);
     }

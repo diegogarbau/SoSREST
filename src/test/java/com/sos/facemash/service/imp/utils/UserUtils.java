@@ -12,17 +12,18 @@ import java.util.stream.IntStream;
 public class UserUtils {
     public static Random random = new Random();
 
-    private static String randomStringGenerator() {
-        return UUID.randomUUID().toString().replace("-", "").substring(0, 7);
+    public static String randomStringGenerator() {
+        return UUID.randomUUID().toString().replace("-", "").substring(0, 4);
     }
 
-    public static User UserRandomGenerator(String common) {
+    private static User UserRandomGenerator(String common) {
         String userTag = common+randomStringGenerator();
         return new User.Builder()
                 .setUserName(userTag)
                 .setName(userTag + "-name")
                 .setLastName(userTag + "-LastName")
                 .setMail(userTag + "@mail.com")
+                .setPhone(random.nextInt(999999999))
                 .build();
     }
 
@@ -33,6 +34,7 @@ public class UserUtils {
                 .setName(userTag + "-name")
                 .setLastName(userTag + "-LastName")
                 .setMail(userTag + "@mail.com")
+                .setPhone(random.nextInt(999999999))
                 .build();
     }
 
@@ -43,6 +45,7 @@ public class UserUtils {
                 .setName(userTag + "-name")
                 .setLastName(userTag + "-LastName")
                 .setMail(userTag + "@mail.com")
+                .setPhone(random.nextInt(999999999))
                 .build();
     }
 

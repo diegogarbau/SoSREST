@@ -3,7 +3,6 @@ package com.sos.facemash.controller.impl;
 import com.sos.facemash.DTO.MsgDetailDTO;
 import com.sos.facemash.DTO.MsgInputDTO;
 import com.sos.facemash.DTO.MsgssDTO;
-import com.sos.facemash.DTO.UserInputDTO;
 import com.sos.facemash.controller.MsgController;
 import com.sos.facemash.service.MsgService;
 import org.springframework.beans.factory.annotation.Autowired;

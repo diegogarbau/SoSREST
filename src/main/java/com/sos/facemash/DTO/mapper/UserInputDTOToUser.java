@@ -3,6 +3,8 @@ package com.sos.facemash.DTO.mapper;
 import com.sos.facemash.DTO.UserInputDTO;
 import com.sos.facemash.entity.User;
 
+import java.util.ArrayList;
+
 public class UserInputDTOToUser {
     private UserInputDTOToUser() {
     }
@@ -14,6 +16,10 @@ public class UserInputDTOToUser {
                 .setPhone(user.getPhone())
                 .setName(user.getName())
                 .setLastName(user.getLastName())
+                .setFriends(new ArrayList<>())
+                .setFriendsOf(new ArrayList<>())
+                .setMessagesSent(new ArrayList<>())
+                .setMessagesReceived(new ArrayList<>())
                 .build();
     }
 }
