@@ -75,8 +75,8 @@ public class MsgInputDTO {
             return this;
         }
 
-        public MsgDetailDTO build() {
-            MsgDetailDTO msgDTO = new MsgDetailDTO();
+        public MsgInputDTO build() {
+            MsgInputDTO msgDTO = new MsgInputDTO();
             msgDTO.setTitle(title);
             msgDTO.setBody(body);
             msgDTO.setDate(date);

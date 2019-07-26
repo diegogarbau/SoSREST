@@ -11,21 +11,11 @@ public class UsersDTO {
     @JsonProperty(value = "users")
     private List<UserSummaryDTO> users;
 
-    public UsersDTO() {
-        super();
-        users = new ArrayList<>();
+    public UsersDTO(List<UserSummaryDTO> users) {
+        this.users = users;
     }
 
     public List<UserSummaryDTO> getUsers() {
         return users;
-    }
-
-    public void setUsers(List<UserSummaryDTO> users) {
-        this.users = users;
-    }
-
-    public UsersDTO insertAll(List<UserSummaryDTO> newUsers) {
-        users.addAll(newUsers);
-        return this;
     }
 }

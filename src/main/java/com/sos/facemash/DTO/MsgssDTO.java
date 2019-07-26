@@ -10,13 +10,11 @@ public class MsgssDTO {
     @JsonProperty(value = "messages")
     private List<MsgSummaryDTO> msgss;
 
-    public void setUsers(List<MsgSummaryDTO> msgss) {
-
+    public MsgssDTO(List<MsgSummaryDTO> msgss) {
         this.msgss = msgss;
     }
 
-    public MsgssDTO insertAll(List<MsgSummaryDTO> newMessages) {
-        msgss.addAll(newMessages);
-        return this;
+    public List<MsgSummaryDTO> getMsgss() {
+        return msgss;
     }
 }

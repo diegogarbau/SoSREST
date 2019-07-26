@@ -1,3 +1,4 @@
+com\sos\facemash\core\Exceptions\NotFriendsException.class
 com\sos\facemash\DTO\mapper\UserToUserDetailDTO.class
 com\sos\facemash\DTO\mapper\MsgInputDTOToMsg.class
 com\sos\facemash\FacemashApplication.class
@@ -17,19 +18,20 @@ com\sos\facemash\service\UserService.class
 com\sos\facemash\entity\Msg$Builder.class
 com\sos\facemash\entity\Msg.class
 com\sos\facemash\core\Exceptions\DuplicatedException.class
+com\sos\facemash\core\Exceptions\AlreadyFriendsException.class
 com\sos\facemash\DTO\UserInputDTO$Builder.class
+com\sos\facemash\service\impl\MsgServiceImpl.class
 com\sos\facemash\service\MsgService.class
 com\sos\facemash\DTO\UserSummaryDTO$Builder.class
-com\sos\facemash\service\imp\MsgServiceImpl.class
 com\sos\facemash\core\Exceptions\MsgNotFoundException.class
 com\sos\facemash\DTO\mapper\UserToUserSummaryDTO.class
 com\sos\facemash\controller\UserController.class
 com\sos\facemash\DTO\mapper\UserInputDTOToUser.class
 com\sos\facemash\DTO\MsgInputDTO.class
 com\sos\facemash\DTO\UserDetailDTO.class
+com\sos\facemash\service\impl\UserServiceImpl.class
 com\sos\facemash\DTO\UserDetailDTO$Builder.class
 com\sos\facemash\DTO\UserSummaryDTO.class
-com\sos\facemash\service\imp\UserServiceImp.class
 com\sos\facemash\controller\impl\UserControllerImpl.class
 com\sos\facemash\DTO\MsgSummaryDTO$Builder.class
 com\sos\facemash\DTO\UsersDTO.class

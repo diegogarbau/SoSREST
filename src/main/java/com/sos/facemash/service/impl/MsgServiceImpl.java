@@ -1,4 +1,4 @@
-package com.sos.facemash.service.imp;
+package com.sos.facemash.service.impl;
 
 import com.sos.facemash.DTO.MsgDetailDTO;
 import com.sos.facemash.DTO.MsgInputDTO;
@@ -8,12 +8,15 @@ import com.sos.facemash.DTO.mapper.MsgToMsgDetailDTO;
 import com.sos.facemash.DTO.mapper.MsgToMsgSummaryDTO;
 import com.sos.facemash.core.Exceptions.MsgNotFoundException;
 import com.sos.facemash.entity.Msg;
+import com.sos.facemash.entity.User;
 import com.sos.facemash.persistance.MsgDAO;
 import com.sos.facemash.service.MsgService;
 import com.sos.facemash.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Service
@@ -29,8 +32,12 @@ public class MsgServiceImpl implements MsgService {
 
     @Override
     public MsgssDTO getAllMsg(String userName, String filter) {
-        return new MsgssDTO().insertAll(msgDAO.findAllByOwner(userService.getUser(userName))
+        Predicate<Msg> filterBycontent = msg -> msg.getTitle().contains(filter);
+        User user = userService.getUser(userName);
+        List<Msg> msgList = msgDAO.findAllByOwner(user);
+        return new MsgssDTO(msgList
                 .stream()
+                .filter(filterBycontent)
                 .map(MsgToMsgSummaryDTO::map)
                 .collect(Collectors.toList()));
     }

@@ -2,16 +2,17 @@ C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\core\Exceptions\Use
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\service\MsgService.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\mapper\UserToUserDetailDTO.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\service\UserService.java
+C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\service\impl\MsgServiceImpl.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\persistance\MsgDAO.java
-C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\service\imp\UserServiceImp.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\controller\impl\MsgControllerImpl.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\core\Exceptions\MsgNotFoundException.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\entity\Msg.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\UserDetailDTO.java
-C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\service\imp\MsgServiceImpl.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\mapper\UserToUserSummaryDTO.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\controller\MsgController.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\MsgDetailDTO.java
+C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\core\Exceptions\AlreadyFriendsException.java
+C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\core\Exceptions\NotFriendsException.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\MsgSummaryDTO.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\core\Exceptions\DuplicatedException.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\mapper\MsgToMsgSummaryDTO.java
@@ -27,4 +28,5 @@ C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\entity\User.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\UserSummaryDTO.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\UserInputDTO.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\UsersDTO.java
+C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\service\impl\UserServiceImpl.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\mapper\MsgToMsgDetailDTO.java

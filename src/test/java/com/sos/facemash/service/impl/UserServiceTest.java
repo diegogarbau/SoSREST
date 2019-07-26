@@ -1,4 +1,4 @@
-package com.sos.facemash.service.imp;
+package com.sos.facemash.service.impl;
 
 
 import com.sos.facemash.DTO.UserDetailDTO;
@@ -13,7 +13,7 @@ import com.sos.facemash.core.Exceptions.UserNotFoundException;
 import com.sos.facemash.entity.User;
 import com.sos.facemash.persistance.UserDAO;
 import com.sos.facemash.service.UserService;
-import com.sos.facemash.service.imp.utils.UserUtils;
+import com.sos.facemash.utils.UserUtils;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -38,8 +38,9 @@ public class UserServiceTest {
 
     @Before
     public void setUp() {
-        userServiceTest = new UserServiceImp(userDAOMock);
+        userServiceTest = new UserServiceImpl(userDAOMock);
     }
+
 
     @Test
     public void getAllUsersEmptyListTest() {
@@ -59,13 +60,6 @@ public class UserServiceTest {
                         assertThat(userIsContained(userList, userSummaryDTO.getUserName()), is(true)));
     }
 
-    private boolean userIsContained(List<User> userList, String userName) {
-        return userList.stream().anyMatch(user -> user.getUserName().equals(userName));
-    }
-
-    private boolean userSummaryDTOisContained(List<UserSummaryDTO> userList, String userName) {
-        return userList.stream().anyMatch(userSummaryDTO -> userSummaryDTO.getUserName().equals(userName));
-    }
 
     @Test
     public void getAllUsersFulfilledListWithFilterTest() {
@@ -194,8 +188,10 @@ public class UserServiceTest {
         User user = UserUtils.UserRandomGenerator();
         User friend = UserUtils.UserRandomGenerator();
         user.getFriends().add(friend);
+
         when(userDAOMock.findByUserName(user.getUserName())).thenReturn(Optional.of(user));
         when(userDAOMock.findByUserName(friend.getUserName())).thenReturn(Optional.of(friend));
+
         userServiceTest.addFriend(user.getUserName(), friend.getUserName());
     }
 
@@ -210,8 +206,10 @@ public class UserServiceTest {
     public void deleteFriendButFriendNotFoundTest() {
         String userName = UserUtils.randomStringGenerator();
         String friendUserName = UserUtils.randomStringGenerator();
+
         when(userDAOMock.findByUserName(userName)).thenReturn(Optional.of(UserUtils.UserRandomGenerator()));
         when(userDAOMock.findByUserName(friendUserName)).thenReturn(Optional.empty());
+
         userServiceTest.deleteFriend(userName, friendUserName);
     }
 
@@ -219,8 +217,10 @@ public class UserServiceTest {
     public void deleteFriendButNotFriendsTest() {
         String userName = UserUtils.randomStringGenerator();
         String friendUserName = UserUtils.randomStringGenerator();
+
         when(userDAOMock.findByUserName(userName)).thenReturn(Optional.of(UserUtils.UserRandomGenerator()));
         when(userDAOMock.findByUserName(friendUserName)).thenReturn(Optional.of(UserUtils.UserRandomGenerator()));
+
         userServiceTest.deleteFriend(userName, friendUserName);
     }
 
@@ -256,5 +256,13 @@ public class UserServiceTest {
         resultDTO.getUsers()
                 .forEach(userSummaryDTO ->
                         assertThat(userIsContained(userList, userSummaryDTO.getUserName()), is(true)));
+    }
+
+    private boolean userIsContained(List<User> userList, String userName) {
+        return userList.stream().anyMatch(user -> user.getUserName().equals(userName));
+    }
+
+    private boolean userSummaryDTOisContained(List<UserSummaryDTO> userList, String userName) {
+        return userList.stream().anyMatch(userSummaryDTO -> userSummaryDTO.getUserName().equals(userName));
     }
 }

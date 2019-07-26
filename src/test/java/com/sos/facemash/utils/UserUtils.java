@@ -1,24 +1,17 @@
-package com.sos.facemash.service.imp.utils;
+package com.sos.facemash.utils;
 
 import com.sos.facemash.DTO.UserInputDTO;
 import com.sos.facemash.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
-import java.util.UUID;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class UserUtils {
-    public static Random random = new Random();
-
-    public static String randomStringGenerator() {
-        return UUID.randomUUID().toString().replace("-", "").substring(0, 4);
-    }
+public class UserUtils extends CoreUtils {
 
     private static User UserRandomGenerator(String common) {
-        String userTag = common+randomStringGenerator();
+        String userTag = common + randomStringGenerator();
         return new User.Builder()
                 .setUserName(userTag)
                 .setName(userTag + "-name")
