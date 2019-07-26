@@ -3,6 +3,7 @@ package com.sos.facemash.service.imp.utils;
 import com.sos.facemash.DTO.UserInputDTO;
 import com.sos.facemash.entity.User;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
@@ -24,6 +25,10 @@ public class UserUtils {
                 .setLastName(userTag + "-LastName")
                 .setMail(userTag + "@mail.com")
                 .setPhone(random.nextInt(999999999))
+                .setFriends(new ArrayList<>())
+                .setFriendsOf(new ArrayList<>())
+                .setMessagesSent(new ArrayList<>())
+                .setMessagesReceived(new ArrayList<>())
                 .build();
     }
 
@@ -35,6 +40,10 @@ public class UserUtils {
                 .setLastName(userTag + "-LastName")
                 .setMail(userTag + "@mail.com")
                 .setPhone(random.nextInt(999999999))
+                .setFriends(new ArrayList<>())
+                .setFriendsOf(new ArrayList<>())
+                .setMessagesSent(new ArrayList<>())
+                .setMessagesReceived(new ArrayList<>())
                 .build();
     }
 

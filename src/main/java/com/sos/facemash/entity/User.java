@@ -1,6 +1,7 @@
 package com.sos.facemash.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -15,15 +16,15 @@ public class User {
     private String lastName;
 
     @ManyToMany
-    @JoinTable(name="friends",
-            joinColumns=@JoinColumn(name="userName"),
-            inverseJoinColumns=@JoinColumn(name="friendId"))
+    @JoinTable(name = "friends",
+            joinColumns = @JoinColumn(name = "userName"),
+            inverseJoinColumns = @JoinColumn(name = "friendId"))
     private List<User> friends;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="friends",
-            joinColumns=@JoinColumn(name="friendId"),
-            inverseJoinColumns=@JoinColumn(name="userName"))
+    @JoinTable(name = "friends",
+            joinColumns = @JoinColumn(name = "friendId"),
+            inverseJoinColumns = @JoinColumn(name = "userName"))
     private List<User> friendsOf;
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -87,7 +88,7 @@ public class User {
         return friends;
     }
 
-    private void setFriends(List<User> friends) {
+    public void setFriends(List<User> friends) {
         this.friends = friends;
     }
 
@@ -98,6 +99,7 @@ public class User {
     public void setFriendsOf(List<User> friendsOf) {
         this.friendsOf = friendsOf;
     }
+
     private List<Msg> getMessagesSent() {
         return messagesSent;
     }
@@ -105,6 +107,7 @@ public class User {
     private void setMessagesSent(List<Msg> messagesSent) {
         this.messagesSent = messagesSent;
     }
+
     public List<Msg> getMessagesReceived() {
         return messagesReceived;
     }
@@ -118,6 +121,19 @@ public class User {
         this.setPhone(newUser.getPhone());
         this.setName(newUser.getName());
         this.setLastName(newUser.getLastName());
+        return this;
+    }
+
+    public User cloneUser(User oldUser) {
+        this.setUserName(oldUser.getUserName());
+        this.setName(oldUser.getName());
+        this.setLastName(oldUser.getLastName());
+        this.setMail(oldUser.getMail());
+        this.setPhone(oldUser.getPhone());
+        this.setFriends(new ArrayList<>(oldUser.getFriends()));
+        this.setFriendsOf(new ArrayList<>(oldUser.getFriendOf()));
+        this.setMessagesSent(new ArrayList<>(oldUser.getMessagesSent()));
+        this.setMessagesReceived(new ArrayList<>(oldUser.getMessagesReceived()));
         return this;
     }
 
@@ -175,6 +191,7 @@ public class User {
             this.friends = friends;
             return this;
         }
+
         public Builder setFriendsOf(List<User> friendsOf) {
             this.friendsOf = friendsOf;
             return this;

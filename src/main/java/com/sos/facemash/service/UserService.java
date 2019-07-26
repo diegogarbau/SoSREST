@@ -23,8 +23,6 @@ public interface UserService {
 
     UsersDTO addFriend(String userName, String friendUserName);
 
-    UsersDTO addFriends(String userName, List<String> friendsList);
-
     UsersDTO deleteFriend(String userName, String friendUserName);
 
     UsersDTO getFriends(String userName);

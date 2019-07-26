@@ -28,9 +28,6 @@ public interface UserController {
     @ApiOperation(value = "User", notes = "Endpoint to add a friend to User, return user's friends")
     UsersDTO addFriend(String userName,String friendUserName );
 
-    @ApiOperation(value = "User", notes = "Endpoint to add a friends list to User, return user's friends")
-    UsersDTO addFriendsList(String userName, List<String> friendsList );
-
     @ApiOperation(value = "User", notes = "Endpoint to delete a friend of User, return user's friends")
     UsersDTO deleteFriend(String userName,String friendUserName );
 

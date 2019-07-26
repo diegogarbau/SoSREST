@@ -3,9 +3,12 @@ package com.sos.facemash.service.imp;
 
 import com.sos.facemash.DTO.UserDetailDTO;
 import com.sos.facemash.DTO.UserInputDTO;
+import com.sos.facemash.DTO.UserSummaryDTO;
 import com.sos.facemash.DTO.UsersDTO;
 import com.sos.facemash.DTO.mapper.UserInputDTOToUser;
+import com.sos.facemash.core.Exceptions.AlreadyFriendsException;
 import com.sos.facemash.core.Exceptions.DuplicatedException;
+import com.sos.facemash.core.Exceptions.NotFriendsException;
 import com.sos.facemash.core.Exceptions.UserNotFoundException;
 import com.sos.facemash.entity.User;
 import com.sos.facemash.persistance.UserDAO;
@@ -28,7 +31,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
-public class UserServiceImpTest {
+public class UserServiceTest {
     @Mock
     private UserDAO userDAOMock;
     private UserService userServiceTest;
@@ -51,22 +54,22 @@ public class UserServiceImpTest {
         when(userDAOMock.findAll()).thenReturn(userList);
         UsersDTO resultDTO = userServiceTest.getAllUsers("");
         assertThat(resultDTO.getUsers().size(), is(userList.size()));
-        resultDTO.getUsers().stream()
-                .flatMap(userList.stream()
-
-
-                )
-                .forEach(userSummaryDTO -> {
-                    assertThat(userSummaryDTO.getUserName().contains(commonTag), is(true));
-                    assertThat(userSummaryDTO.getMail().contains(commonTag), is(true));
-                });
+        resultDTO.getUsers()
+                .forEach(userSummaryDTO ->
+                        assertThat(userIsContained(userList, userSummaryDTO.getUserName()), is(true)));
     }
 
+    private boolean userIsContained(List<User> userList, String userName) {
+        return userList.stream().anyMatch(user -> user.getUserName().equals(userName));
+    }
 
+    private boolean userSummaryDTOisContained(List<UserSummaryDTO> userList, String userName) {
+        return userList.stream().anyMatch(userSummaryDTO -> userSummaryDTO.getUserName().equals(userName));
+    }
 
     @Test
     public void getAllUsersFulfilledListWithFilterTest() {
-        String commonTag = UserUtils.random.toString();
+        String commonTag = UserUtils.randomStringGenerator();
         List<User> userTaggedList = UserUtils.userRandomListGenerator(commonTag);
         List<User> userList = UserUtils.userRandomListGenerator();
         userList.addAll(userTaggedList);
@@ -77,13 +80,14 @@ public class UserServiceImpTest {
                 .forEach(userSummaryDTO -> {
                     assertThat(userSummaryDTO.getUserName().contains(commonTag), is(true));
                     assertThat(userSummaryDTO.getMail().contains(commonTag), is(true));
+                    assertThat(userIsContained(userTaggedList, userSummaryDTO.getUserName()), is(true));
                 });
     }
 
     @Test(expected = UserNotFoundException.class)
     public void getUserDetailNotFoundTest() {
         when(userDAOMock.findByUserName(any())).thenReturn(Optional.empty());
-        userServiceTest.getUserDetail(UserUtils.random.toString());
+        userServiceTest.getUserDetail(UserUtils.randomStringGenerator());
     }
 
     @Test
@@ -126,6 +130,7 @@ public class UserServiceImpTest {
         when(userDAOMock.findByUserName(any())).thenReturn(Optional.empty());
         userServiceTest.modifyUser(UserUtils.randomStringGenerator(), UserUtils.UserInputDTORandomGenerator());
     }
+
     @Test
     public void modifyUserWorksTest() {
         User user = UserUtils.UserRandomGenerator();
@@ -154,23 +159,102 @@ public class UserServiceImpTest {
     public void addFriendButUserNotFoundTest() {
         String userName = UserUtils.randomStringGenerator();
         when(userDAOMock.findByUserName(userName)).thenReturn(Optional.empty());
-        userServiceTest.addFriend(userName,UserUtils.randomStringGenerator());
+        userServiceTest.addFriend(userName, UserUtils.randomStringGenerator());
     }
+
     @Test(expected = UserNotFoundException.class)
     public void addFriendButFriendNotFoundTest() {
         String friendUserName = UserUtils.randomStringGenerator();
         String userName = UserUtils.randomStringGenerator();
+
         when(userDAOMock.findByUserName(userName)).thenReturn(Optional.of(UserUtils.UserRandomGenerator()));
         when(userDAOMock.findByUserName(friendUserName)).thenReturn(Optional.empty());
-        userServiceTest.addFriend(userName,UserUtils.randomStringGenerator());
+
+        userServiceTest.addFriend(userName, friendUserName);
     }
 
     @Test
-    public void addFriends() {
+    public void addFriendWorksTest() {
+        User user = UserUtils.UserRandomGenerator();
+        User friend = UserUtils.UserRandomGenerator();
+        User userModified = new User.Builder().build().cloneUser(user);
+        userModified.getFriends().add(friend);
 
+        when(userDAOMock.findByUserName(user.getUserName())).thenReturn(Optional.of(user));
+        when(userDAOMock.findByUserName(friend.getUserName())).thenReturn(Optional.of(friend));
+        when(userDAOMock.save(any())).thenReturn(userModified);
+
+        UsersDTO resultDTO = userServiceTest.addFriend(user.getUserName(), friend.getUserName());
+
+        assertThat(userSummaryDTOisContained(resultDTO.getUsers(), friend.getUserName()), is(true));
+    }
+
+    @Test(expected = AlreadyFriendsException.class)
+    public void addFriendButAlreadyFriendsTest() {
+        User user = UserUtils.UserRandomGenerator();
+        User friend = UserUtils.UserRandomGenerator();
+        user.getFriends().add(friend);
+        when(userDAOMock.findByUserName(user.getUserName())).thenReturn(Optional.of(user));
+        when(userDAOMock.findByUserName(friend.getUserName())).thenReturn(Optional.of(friend));
+        userServiceTest.addFriend(user.getUserName(), friend.getUserName());
+    }
+
+    @Test(expected = UserNotFoundException.class)
+    public void deleteFriendButUserNotFoundTest() {
+        String userName = UserUtils.randomStringGenerator();
+        when(userDAOMock.findByUserName(userName)).thenReturn(Optional.empty());
+        userServiceTest.deleteFriend(userName, UserUtils.randomStringGenerator());
+    }
+
+    @Test(expected = UserNotFoundException.class)
+    public void deleteFriendButFriendNotFoundTest() {
+        String userName = UserUtils.randomStringGenerator();
+        String friendUserName = UserUtils.randomStringGenerator();
+        when(userDAOMock.findByUserName(userName)).thenReturn(Optional.of(UserUtils.UserRandomGenerator()));
+        when(userDAOMock.findByUserName(friendUserName)).thenReturn(Optional.empty());
+        userServiceTest.deleteFriend(userName, friendUserName);
+    }
+
+    @Test(expected = NotFriendsException.class)
+    public void deleteFriendButNotFriendsTest() {
+        String userName = UserUtils.randomStringGenerator();
+        String friendUserName = UserUtils.randomStringGenerator();
+        when(userDAOMock.findByUserName(userName)).thenReturn(Optional.of(UserUtils.UserRandomGenerator()));
+        when(userDAOMock.findByUserName(friendUserName)).thenReturn(Optional.of(UserUtils.UserRandomGenerator()));
+        userServiceTest.deleteFriend(userName, friendUserName);
     }
 
     @Test
-    public void deleteFriend() {
+    public void deleteFriendWorksTest() {
+        User user = UserUtils.UserRandomGenerator();
+        User friend = UserUtils.UserRandomGenerator();
+        User userModified = new User.Builder().build().cloneUser(user);
+        user.getFriends().add(friend);
+        userModified.getFriends().remove(friend);
+
+        when(userDAOMock.findByUserName(user.getUserName())).thenReturn(Optional.of(user));
+        when(userDAOMock.findByUserName(friend.getUserName())).thenReturn(Optional.of(friend));
+        when(userDAOMock.save(any())).thenReturn(userModified);
+
+        UsersDTO resultDTO = userServiceTest.deleteFriend(user.getUserName(), friend.getUserName());
+        assertThat(userSummaryDTOisContained(resultDTO.getUsers(), friend.getUserName()), is(false));
+    }
+
+    @Test(expected = UserNotFoundException.class)
+    public void getFriendsUserNotFoundTest() {
+        when(userDAOMock.findByUserName(any())).thenReturn(Optional.empty());
+        userServiceTest.getFriends(UserUtils.randomStringGenerator());
+    }
+
+    @Test(expected = UserNotFoundException.class)
+    public void getFriendsWorksTest() {
+        User user = UserUtils.UserRandomGenerator();
+        List<User> userList = UserUtils.userRandomListGenerator();
+        user.setFriends(userList);
+
+        UsersDTO resultDTO = userServiceTest.getFriends(UserUtils.randomStringGenerator());
+        resultDTO.getUsers()
+                .forEach(userSummaryDTO ->
+                        assertThat(userIsContained(userList, userSummaryDTO.getUserName()), is(true)));
     }
 }

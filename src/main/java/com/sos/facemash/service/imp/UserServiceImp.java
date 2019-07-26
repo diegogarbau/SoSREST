@@ -6,7 +6,9 @@ import com.sos.facemash.DTO.UsersDTO;
 import com.sos.facemash.DTO.mapper.UserInputDTOToUser;
 import com.sos.facemash.DTO.mapper.UserToUserDetailDTO;
 import com.sos.facemash.DTO.mapper.UserToUserSummaryDTO;
+import com.sos.facemash.core.Exceptions.AlreadyFriendsException;
 import com.sos.facemash.core.Exceptions.DuplicatedException;
+import com.sos.facemash.core.Exceptions.NotFriendsException;
 import com.sos.facemash.core.Exceptions.UserNotFoundException;
 import com.sos.facemash.entity.User;
 import com.sos.facemash.persistance.UserDAO;
@@ -14,7 +16,6 @@ import com.sos.facemash.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -82,28 +83,19 @@ public class UserServiceImp implements UserService {
                 -> new UserNotFoundException("El usuario no figura en la base de datos"));
         User newFriend = userDAO.findByUserName(friendUserName).orElseThrow(()
                 -> new UserNotFoundException("El usuario no figura en la base de datos"));
-        makeFriends(user, newFriend);
-        return getFriendsList(userDAO.save(user));
-    }
-
-    @Override
-    public UsersDTO addFriends(String userName, List<String> friendsList) {
-        User user = userDAO.findByUserName(userName).orElseThrow(()
-                -> new UserNotFoundException("El usuario no figura en la base de datos"));
-        friendsList
-                .forEach(friend ->
-                   userDAO.findByUserName(friend).ifPresent( userFriend -> makeFriends(user,userFriend)));
-
-        return getFriendsList(userDAO.save(user));
+        return getFriendsList(makeFriends(user, newFriend));
     }
 
     @Override
     public UsersDTO deleteFriend(String userName, String friendUserName) {
         User user = userDAO.findByUserName(userName).orElseThrow(()
                 -> new UserNotFoundException("El usuario no figura en la base de datos"));
-        User friend = userDAO.findByUserName(userName).orElseThrow(()
+        User friend = userDAO.findByUserName(friendUserName).orElseThrow(()
                 -> new UserNotFoundException("El usuario no figura en la base de datos"));
+        if (!user.getFriends().contains(friend))
+            throw new NotFriendsException("Esos usuarios no son amigos");
         user.getFriends().remove(friend);
+        friend.getFriendOf().remove(user);
         return getFriendsList(userDAO.save(user));
     }
 
@@ -113,9 +105,13 @@ public class UserServiceImp implements UserService {
                 -> new UserNotFoundException("El usuario no figura en la base de datos")));
     }
 
-    private void makeFriends(User user, User newFriend) {
-        if (!user.getFriends().contains(newFriend))
-            user.getFriends().add(newFriend);
+    private User makeFriends(User user, User newFriend) {
+        if (user.getFriends().contains(newFriend))
+            throw new AlreadyFriendsException("Ya son amigos");
+        user.getFriends().add(newFriend);
+        newFriend.getFriendOf().add(user);
+        userDAO.save(newFriend);
+        return userDAO.save(user);
     }
 
     private UsersDTO getFriendsList(User user) {

@@ -68,13 +68,6 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @ResponseStatus(HttpStatus.OK)
-    @PutMapping("/user/{userName}/friends/")
-    public UsersDTO addFriendsList(@PathVariable("userName") String userName,@RequestBody List<String> friendsList) {
-        return userService.addFriends( userName, friendsList);
-    }
-
-    @Override
-    @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/user/{userName}/friend/{friendUserName}")
     public UsersDTO deleteFriend(@PathVariable("userName") String userName,@PathVariable("friendUserName")  String friendUserName) {
         return userService.deleteFriend( userName, friendUserName);
