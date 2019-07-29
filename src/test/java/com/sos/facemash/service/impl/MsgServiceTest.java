@@ -2,6 +2,7 @@ package com.sos.facemash.service.impl;
 
 import com.sos.facemash.DTO.MsgSummaryDTO;
 import com.sos.facemash.DTO.MsgssDTO;
+import com.sos.facemash.core.Exceptions.MsgNotFoundException;
 import com.sos.facemash.core.Exceptions.UserNotFoundException;
 import com.sos.facemash.entity.Msg;
 import com.sos.facemash.entity.User;
@@ -18,12 +19,12 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.contains;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -67,11 +68,11 @@ public class MsgServiceTest {
         User user = UserUtils.UserRandomGenerator();
         String common = CoreUtils.randomStringGenerator();
         List<Msg> msgFilteredList = MsgUtils.msgOfUserAndFilterRandomListGenerator(user, common);
-        List<Msg> msgList = MsgUtils.msgOfUserRandomListGenerator(user);
-        msgList.addAll(msgFilteredList);
+        List<Msg> msgList = MsgUtils.msgListOfSeveralUsersGenerator();
         when(userServiceMock.getUser(any())).thenReturn(user);
         when(msgDAOMock.findAllByOwner(any())).thenReturn(msgList);
-        MsgssDTO resultDTO = msgServiceTest.getAllMsg(CoreUtils.randomStringGenerator(), "");
+        msgList.addAll(msgFilteredList);
+        MsgssDTO resultDTO = msgServiceTest.getAllMsg(CoreUtils.randomStringGenerator(), common);
         assertThat(resultDTO.getMsgss().size(), is(msgFilteredList.size()));
         resultDTO.getMsgss()
                 .forEach(msgSummaryDTO -> {
@@ -81,8 +82,15 @@ public class MsgServiceTest {
                 });
     }
 
+    @Test(expected = MsgNotFoundException.class)
+    public void getMsgNotFoundTest() {
+        when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.empty());
+        msgServiceTest.getMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong());
+    }
+
     @Test
-    public void getMsg() {
+    public void getMsgWorksTest() {
+
     }
 
     @Test

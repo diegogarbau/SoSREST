@@ -24,8 +24,8 @@ public class MsgUtils extends CoreUtils {
     private static Msg ownMsgRandomWithFilterGenerator(User owner, String common) {
         return new Msg.Builder()
                 .setId(random.nextLong())
-                .setTitle(common+"-"+randomStringGenerator())
-                .setBody(common+"-"+randomStringGenerator())
+                .setTitle(common + "-" + randomStringGenerator())
+                .setBody(common + "-" + randomStringGenerator())
                 .setDate(new Date(random.nextLong()))
                 .setOwner(owner)
                 .build();
@@ -74,10 +74,20 @@ public class MsgUtils extends CoreUtils {
                 .collect(Collectors.toList());
     }
 
+
     public static List<Msg> msgOfUserAndFilterRandomListGenerator(User owner, String common) {
         return IntStream.rangeClosed(0, random.nextInt(8) + 1)
                 .mapToObj(i -> ownMsgRandomWithFilterGenerator(owner, common))
                 .collect(Collectors.toList());
     }
 
+    public static List<Msg> msgListOfSeveralUsersGenerator() {
+        return UserUtils.userRandomListGenerator()
+                .stream()
+                .map(MsgUtils::msgOfUserRandomListGenerator)
+                .collect(Collectors.toList())
+                .stream()
+                .flatMap(List::stream)
+                .collect(Collectors.toList());
+    }
 }
