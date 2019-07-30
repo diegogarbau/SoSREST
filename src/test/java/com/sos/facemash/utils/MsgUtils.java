@@ -6,6 +6,7 @@ import com.sos.facemash.entity.User;
 
 import java.util.Date;
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -88,6 +89,18 @@ public class MsgUtils extends CoreUtils {
                 .collect(Collectors.toList())
                 .stream()
                 .flatMap(List::stream)
+                .collect(Collectors.toList());
+    }
+    public static List<Msg> msgListOfSeveralUsersGenerator(String common) {
+        Predicate<Msg> filterWithOutContent = msg -> !msg.getTitle().contains(common);
+        return UserUtils.userRandomListGenerator()
+                .stream()
+                .map(MsgUtils::msgOfUserRandomListGenerator)
+                .collect(Collectors.toList())
+                .stream()
+                .flatMap(List::stream)
+                .collect(Collectors.toList()).stream()
+                .filter(filterWithOutContent)
                 .collect(Collectors.toList());
     }
 }

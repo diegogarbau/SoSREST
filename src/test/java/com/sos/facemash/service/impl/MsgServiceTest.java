@@ -70,7 +70,7 @@ public class MsgServiceTest {
         User user = UserUtils.UserRandomGenerator();
         String common = CoreUtils.randomStringGenerator();
         List<Msg> msgFilteredList = MsgUtils.msgOfUserAndFilterRandomListGenerator(user, common);
-        List<Msg> msgList = MsgUtils.msgListOfSeveralUsersGenerator();
+        List<Msg> msgList = MsgUtils.msgListOfSeveralUsersGenerator(common);
         when(userServiceMock.getUser(any())).thenReturn(user);
         when(msgDAOMock.findAllByOwner(any())).thenReturn(msgList);
         msgList.addAll(msgFilteredList);
@@ -120,7 +120,6 @@ public class MsgServiceTest {
         when(userServiceMock.getUser(any())).thenThrow(new UserNotFoundException(""));
         msgServiceTest.createMsg(CoreUtils.randomStringGenerator(), msgInput);
     }
-
     @Test(expected = UserNotFoundException.class)
     public void modifyMsgButUserNotFoundTest() {
         MsgInputDTO msgInput = MsgUtils.msgInputDTORandomGenerator();
