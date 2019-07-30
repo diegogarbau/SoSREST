@@ -1,7 +1,9 @@
 package com.sos.facemash.service.impl;
 
-import com.sos.facemash.DTO.MsgSummaryDTO;
+import com.sos.facemash.DTO.MsgDetailDTO;
+import com.sos.facemash.DTO.MsgInputDTO;
 import com.sos.facemash.DTO.MsgssDTO;
+import com.sos.facemash.DTO.mapper.MsgInputDTOToMsg;
 import com.sos.facemash.core.Exceptions.MsgNotFoundException;
 import com.sos.facemash.core.Exceptions.UserNotFoundException;
 import com.sos.facemash.entity.Msg;
@@ -90,26 +92,92 @@ public class MsgServiceTest {
 
     @Test
     public void getMsgWorksTest() {
-
+        User user = UserUtils.UserRandomGenerator();
+        Msg msg = MsgUtils.ownMsgRandomGenerator(user);
+        when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.of(msg));
+        MsgDetailDTO resultDTO = msgServiceTest.getMsg(user.getUserName(), CoreUtils.random.nextLong());
+        assertThat(resultDTO.getOwner().getUserName(), is(user.getUserName()));
+        assertThat(resultDTO.getTitle(), is(msg.getTitle()));
+        assertThat(resultDTO.getBody(), is(msg.getBody()));
+        assertThat(resultDTO.getDate(), is(msg.getDate()));
     }
 
     @Test
-    public void createMsg() {
+    public void createMsgWorksTest() {
+        User user = UserUtils.UserRandomGenerator();
+        Msg msg = MsgUtils.ownMsgRandomGenerator(user);
+        when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.of(msg));
+        MsgDetailDTO resultDTO = msgServiceTest.getMsg(user.getUserName(), CoreUtils.random.nextLong());
+        assertThat(resultDTO.getOwner().getUserName(), is(user.getUserName()));
+        assertThat(resultDTO.getTitle(), is(msg.getTitle()));
+        assertThat(resultDTO.getBody(), is(msg.getBody()));
+        assertThat(resultDTO.getDate(), is(msg.getDate()));
+    }
+
+    @Test(expected = UserNotFoundException.class)
+    public void createMsgButUserNotFoundTest() {
+        MsgInputDTO msgInput = MsgUtils.msgInputDTORandomGenerator();
+        when(userServiceMock.getUser(any())).thenThrow(new UserNotFoundException(""));
+        msgServiceTest.createMsg(CoreUtils.randomStringGenerator(), msgInput);
+    }
+
+    @Test(expected = UserNotFoundException.class)
+    public void modifyMsgButUserNotFoundTest() {
+        MsgInputDTO msgInput = MsgUtils.msgInputDTORandomGenerator();
+        when(userServiceMock.getUser(any())).thenThrow(new UserNotFoundException(""));
+        msgServiceTest.modifyMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong(), msgInput);
+    }
+
+    @Test(expected = MsgNotFoundException.class)
+    public void modifyMsgButMsgNotFoundTest() {
+        User user = UserUtils.UserRandomGenerator();
+        MsgInputDTO msgInput = MsgUtils.msgInputDTORandomGenerator();
+        when(userServiceMock.getUser(any())).thenReturn(user);
+        when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.empty());
+        msgServiceTest.modifyMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong(), msgInput);
     }
 
     @Test
-    public void modifyMsg() {
+    public void modifyMsgWorksTest() {
+        User user = UserUtils.UserRandomGenerator();
+        MsgInputDTO msgInput = MsgUtils.msgInputDTORandomGenerator();
+        Msg msg = MsgUtils.ownMsgRandomGenerator(user);
+        when(userServiceMock.getUser(any())).thenReturn(user);
+        when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.of(msg));
+        Msg updatedMsg = msg.updateMsg(MsgInputDTOToMsg.map(msgInput));
+        when(msgDAOMock.save(any())).thenReturn(updatedMsg);
+        MsgDetailDTO resultDTO = msgServiceTest.modifyMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong(), msgInput);
+        assertThat(resultDTO.getOwner().getUserName(), is(user.getUserName()));
+        assertThat(resultDTO.getTitle(), is(msgInput.getTitle()));
+        assertThat(resultDTO.getBody(), is(msgInput.getBody()));
+        assertThat(resultDTO.getDate(), is(msgInput.getDate()));
+    }
+
+    @Test(expected = UserNotFoundException.class)
+    public void deleteMsgButUserNotFoundTest() {
+        when(userServiceMock.getUser(any())).thenThrow(new UserNotFoundException(""));
+        msgServiceTest.deleteMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong());
+    }
+
+    @Test(expected = MsgNotFoundException.class)
+    public void deleteMsgButMsgNotFoundTest() {
+        User user = UserUtils.UserRandomGenerator();
+        when(userServiceMock.getUser(any())).thenReturn(user);
+        when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.empty());
+        msgServiceTest.deleteMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong());
     }
 
     @Test
-    public void deleteMsg() {
+    public void deleteMsgWorksTest() {
+        User user = UserUtils.UserRandomGenerator();
+        Msg msg = MsgUtils.ownMsgRandomGenerator(user);
+        when(userServiceMock.getUser(any())).thenReturn(user);
+        when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.of(msg));
+        msgServiceTest.deleteMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong());
+        assertThat(true, is(true));
     }
 
     private boolean messageIsContained(List<Msg> msgList, String title) {
         return msgList.stream().anyMatch(msg -> msg.getTitle().contains(title));
-    }
-
-    private boolean msgSummaryDTOisContained(List<MsgSummaryDTO> msgList, String filter) {
-        return msgList.stream().anyMatch(msgSummaryDTO -> msgSummaryDTO.getTitle().contains(filter));
     }
 }

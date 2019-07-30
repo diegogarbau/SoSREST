@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 
 public class MsgUtils extends CoreUtils {
 
-    private static Msg ownMsgRandomGenerator(User owner) {
+    public static Msg ownMsgRandomGenerator(User owner) {
         return new Msg.Builder()
                 .setId(random.nextLong())
                 .setTitle(randomStringGenerator())
@@ -42,7 +42,7 @@ public class MsgUtils extends CoreUtils {
                 .build();
     }
 
-    private static Msg msgRandomGenerator() {
+    public static Msg msgRandomGenerator() {
         return new Msg.Builder()
                 .setId(random.nextLong())
                 .setTitle(randomStringGenerator())

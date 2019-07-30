@@ -148,6 +148,11 @@ public class UserServiceTest {
         when(userDAOMock.findByUserName(any())).thenReturn(Optional.empty());
         userServiceTest.deleteUser(UserUtils.randomStringGenerator());
     }
+    @Test(expected = UserNotFoundException.class)
+    public void deleteUserWorksTest() {
+        when(userDAOMock.findByUserName(any())).thenReturn(Optional.empty());
+        userServiceTest.deleteUser(UserUtils.randomStringGenerator());
+    }
 
     @Test(expected = UserNotFoundException.class)
     public void addFriendButUserNotFoundTest() {

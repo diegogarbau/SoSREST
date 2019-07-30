@@ -52,7 +52,7 @@ public class MsgServiceImpl implements MsgService {
     public MsgDetailDTO createMsg(String userName, MsgInputDTO msgInputDTO) {
         Msg msg = MsgInputDTOToMsg.map(msgInputDTO);
         msg.setOwner(userService.getUser(userName));
-        return MsgToMsgDetailDTO.map(msgDAO.save(msg));
+        return saveMsg(msg);
     }
 
     @Override
@@ -60,8 +60,10 @@ public class MsgServiceImpl implements MsgService {
         Msg msg = msgDAO.findByIdAndOwner(msgId, userService.getUser(userName)).orElseThrow(()
                 -> new MsgNotFoundException("El mensaje no figura en la base de datos"));
         msg.updateMsg(MsgInputDTOToMsg.map(msgInputDTO));
+        return saveMsg(msg);
+    }
+    private MsgDetailDTO saveMsg(Msg msg){
         return MsgToMsgDetailDTO.map(msgDAO.save(msg));
-
     }
 
     @Override

@@ -8,8 +8,8 @@ public class MsgDetailDTO {
     private String title;
     private String body;
     private Date date;
-    private User Owner;
-    private User Destination;
+    private User owner;
+    private User destination;
 
     public String getTitle() {
         return title;
@@ -36,19 +36,19 @@ public class MsgDetailDTO {
     }
 
     public User getOwner() {
-        return Owner;
+        return owner;
     }
 
-    public void setOwner(User Owner) {
-        this.Owner = Owner;
+    public void setOwner(User owner) {
+        this.owner = owner;
     }
 
     public User getDestination() {
-        return Destination;
+        return destination;
     }
 
-    public void setDestination(User Destination) {
-        this.Destination = Destination;
+    public void setDestination(User destination) {
+        this.destination = destination;
     }
 
     public static class Builder {
@@ -56,8 +56,8 @@ public class MsgDetailDTO {
         private String title;
         private String body;
         private Date date;
-        private User Owner;
-        private User Destination;
+        private User owner;
+        private User destination;
 
         public Builder setBody(String body) {
             this.body = body;
@@ -65,7 +65,7 @@ public class MsgDetailDTO {
         }
 
         public Builder setTitle(String title) {
-            this.body = title;
+            this.title = title;
             return this;
         }
 
@@ -74,13 +74,13 @@ public class MsgDetailDTO {
             return this;
         }
 
-        public Builder setOwner(User Owner) {
-            this.Owner = Owner;
+        public Builder setOwner(User owner) {
+            this.owner = owner;
             return this;
         }
 
-        public Builder setDestination(User Destination) {
-            this.Destination = Destination;
+        public Builder setDestination(User destination) {
+            this.destination = destination;
             return this;
         }
 
@@ -90,8 +90,8 @@ public class MsgDetailDTO {
             msgDetailDTO.setTitle(title);
             msgDetailDTO.setBody(body);
             msgDetailDTO.setDate(date);
-            msgDetailDTO.setDestination(Destination);
-            msgDetailDTO.setOwner(Owner);
+            msgDetailDTO.setDestination(destination);
+            msgDetailDTO.setOwner(owner);
             return msgDetailDTO;
         }
     }
