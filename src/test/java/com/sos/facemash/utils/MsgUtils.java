@@ -6,7 +6,6 @@ import com.sos.facemash.entity.User;
 
 import java.util.Date;
 import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -58,8 +57,7 @@ public class MsgUtils extends CoreUtils {
         return new MsgInputDTO.Builder()
                 .setTitle(randomStringGenerator())
                 .setBody(randomStringGenerator())
-                .setDate(new Date(random.nextLong()))
-                .setDestination(UserUtils.UserRandomGenerator())
+                .setDestinationId(UserUtils.UserRandomGenerator().getUserName())
                 .build();
     }
 
@@ -91,16 +89,16 @@ public class MsgUtils extends CoreUtils {
                 .flatMap(List::stream)
                 .collect(Collectors.toList());
     }
+
     public static List<Msg> msgListOfSeveralUsersGenerator(String common) {
-        Predicate<Msg> filterWithOutContent = msg -> !msg.getTitle().contains(common);
         return UserUtils.userRandomListGenerator()
                 .stream()
                 .map(MsgUtils::msgOfUserRandomListGenerator)
                 .collect(Collectors.toList())
-                .stream()
-                .flatMap(List::stream)
-                .collect(Collectors.toList()).stream()
-                .filter(filterWithOutContent)
-                .collect(Collectors.toList());
+                    .stream()
+                    .flatMap(List::stream)
+                    .collect(Collectors.toList()).stream()
+                        .filter(msg -> !msg.getTitle().contains(common))
+                        .collect(Collectors.toList());
     }
 }

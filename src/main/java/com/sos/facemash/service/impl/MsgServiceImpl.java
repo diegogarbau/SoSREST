@@ -6,17 +6,14 @@ import com.sos.facemash.DTO.MsgssDTO;
 import com.sos.facemash.DTO.mapper.MsgInputDTOToMsg;
 import com.sos.facemash.DTO.mapper.MsgToMsgDetailDTO;
 import com.sos.facemash.DTO.mapper.MsgToMsgSummaryDTO;
-import com.sos.facemash.core.Exceptions.MsgNotFoundException;
+import com.sos.facemash.core.exceptions.messagesExceptions.MsgNotFoundException;
 import com.sos.facemash.entity.Msg;
-import com.sos.facemash.entity.User;
 import com.sos.facemash.persistance.MsgDAO;
 import com.sos.facemash.service.MsgService;
 import com.sos.facemash.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,19 +22,17 @@ public class MsgServiceImpl implements MsgService {
     private UserService userService;
 
     @Autowired
-    public MsgServiceImpl(MsgDAO msgDAO, UserService userService) {
+    MsgServiceImpl(MsgDAO msgDAO, UserService userService) {
         this.msgDAO = msgDAO;
         this.userService = userService;
     }
 
     @Override
-    public MsgssDTO getAllMsg(String userName, String filter) {
-        Predicate<Msg> filterBycontent = msg -> msg.getTitle().contains(filter);
-        User user = userService.getUser(userName);
-        List<Msg> msgList = msgDAO.findAllByOwner(user);
-        return new MsgssDTO(msgList
+    public MsgssDTO getAllMsg(String userName, String filter, int nElements) {
+        return new MsgssDTO(msgDAO.findAllByOwner(userService.getUser(userName))
                 .stream()
-                .filter(filterBycontent)
+                .filter(msg -> msg.getTitle().contains(filter))
+                .limit((nElements == 0) ? 10 : nElements)
                 .map(MsgToMsgSummaryDTO::map)
                 .collect(Collectors.toList()));
     }
@@ -51,8 +46,7 @@ public class MsgServiceImpl implements MsgService {
     @Override
     public MsgDetailDTO createMsg(String userName, MsgInputDTO msgInputDTO) {
         Msg msg = MsgInputDTOToMsg.map(msgInputDTO);
-        msg.setOwner(userService.getUser(userName));
-        return saveMsg(msg);
+        return saveMsg(msg.setOwner(userService.getUser(userName)));
     }
 
     @Override
@@ -60,9 +54,19 @@ public class MsgServiceImpl implements MsgService {
         Msg msg = msgDAO.findByIdAndOwner(msgId, userService.getUser(userName)).orElseThrow(()
                 -> new MsgNotFoundException("El mensaje no figura en la base de datos"));
         msg.updateMsg(MsgInputDTOToMsg.map(msgInputDTO));
+        if (msgInputDTO.getDestinationId() != null) {
+            msg.setDestination(userService.getUser(msgInputDTO.getDestinationId()));
+        }
         return saveMsg(msg);
     }
-    private MsgDetailDTO saveMsg(Msg msg){
+
+    private MsgDetailDTO saveMsg(Msg msg) {
+        if (msg.getDestination() != null) {
+            msg.getDestination().getMessagesReceived().add(msg);
+            userService.saveUser(msg.getDestination());
+        }
+        msg.getOwner().getMessagesSent().add(msg);
+        userService.saveUser(msg.getOwner());
         return MsgToMsgDetailDTO.map(msgDAO.save(msg));
     }
 

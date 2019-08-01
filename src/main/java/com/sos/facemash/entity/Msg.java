@@ -18,7 +18,7 @@ public class Msg {
     @JoinColumn(name = "messagesOwner", nullable = false)
     private User owner;
     @ManyToOne
-    @JoinColumn(name = "messagesReceived")
+    @JoinColumn(name = "messagesDestination")
     private User destination;
 
     public Long getId() {
@@ -57,8 +57,9 @@ public class Msg {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public Msg setOwner(User owner) {
         this.owner = owner;
+        return this;
     }
 
     public User getDestination() {

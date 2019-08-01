@@ -1,8 +1,12 @@
 package com.sos.facemash.DTO;
 
 
-import javax.validation.constraints.NotEmpty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
+@JsonPropertyOrder({"userName", "mail", "phone", "name", "lastName"})
 public class UserInputDTO {
     @NotEmpty
     private String userName;

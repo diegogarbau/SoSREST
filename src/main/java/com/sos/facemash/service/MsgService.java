@@ -5,7 +5,7 @@ import com.sos.facemash.DTO.MsgInputDTO;
 import com.sos.facemash.DTO.MsgssDTO;
 
 public interface MsgService {
-    MsgssDTO getAllMsg(String userName, String filter);
+    MsgssDTO getAllMsg(String userName, String filter, int nElements);
 
     MsgDetailDTO getMsg(String userName, Long msgId);
 

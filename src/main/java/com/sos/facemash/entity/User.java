@@ -96,11 +96,11 @@ public class User {
         return friendsOf;
     }
 
-    public void setFriendsOf(List<User> friendsOf) {
+    private void setFriendsOf(List<User> friendsOf) {
         this.friendsOf = friendsOf;
     }
 
-    private List<Msg> getMessagesSent() {
+    public List<Msg> getMessagesSent() {
         return messagesSent;
     }
 

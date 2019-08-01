@@ -21,10 +21,10 @@ public class MsgControllerImpl implements MsgController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{userName}/messages/{filter}/")
+    @GetMapping("/{userName}/messages/{filter}/{nElements}")
     @Override
-    public MsgssDTO getAllMessages(@PathVariable("userName") String userName, @PathVariable("filter") String filter) {
-        return msgService.getAllMsg(userName, filter);
+    public MsgssDTO getAllMessages(@PathVariable("userName") String userName, @PathVariable("filter") String filter, @PathVariable("filter") int nElements) {
+        return msgService.getAllMsg(userName, filter,nElements);
     }
 
     @ResponseStatus(HttpStatus.OK)

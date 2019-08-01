@@ -1,10 +1,8 @@
 package com.sos.facemash.DTO;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import com.sos.facemash.entity.User;
 
 import javax.validation.constraints.NotEmpty;
-import java.util.Date;
 
 @JsonPropertyOrder({"title", "body", "date", "destination"})
 public class MsgInputDTO {
@@ -12,15 +10,14 @@ public class MsgInputDTO {
     private String title;
     @NotEmpty
     private String body;
-    @NotEmpty
-    private Date date;
-    private User destination;
+
+    private String destinationId;
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    private void setTitle(String title) {
         this.title = title;
     }
 
@@ -28,30 +25,21 @@ public class MsgInputDTO {
         return body;
     }
 
-    public void setBody(String body) {
+    private void setBody(String body) {
         this.body = body;
     }
 
-    public Date getDate() {
-        return date;
+    public String getDestinationId() {
+        return destinationId;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
-
-    public User getDestination() {
-        return destination;
-    }
-
-    public void setDestination(User destination) {
-        this.destination = destination;
+    private void setDestinationId(String destinationId) {
+        this.destinationId = destinationId;
     }
 
     public static class Builder {
         private String body;
-        private Date date;
-        private User destination;
+        private String destinationId;
         private String title;
 
         public Builder setTitle(String title) {
@@ -64,14 +52,8 @@ public class MsgInputDTO {
             return this;
         }
 
-        public Builder setDate(Date date) {
-            this.date = date;
-            return this;
-        }
-
-
-        public Builder setDestination(User destination) {
-            this.destination = destination;
+        public Builder setDestinationId(String destinationId) {
+            this.destinationId = destinationId;
             return this;
         }
 
@@ -79,8 +61,7 @@ public class MsgInputDTO {
             MsgInputDTO msgDTO = new MsgInputDTO();
             msgDTO.setTitle(title);
             msgDTO.setBody(body);
-            msgDTO.setDate(date);
-            msgDTO.setDestination(destination);
+            msgDTO.setDestinationId(destinationId);
             return msgDTO;
         }
     }

@@ -5,11 +5,11 @@ import com.sos.facemash.DTO.UserInputDTO;
 import com.sos.facemash.DTO.UsersDTO;
 import com.sos.facemash.entity.User;
 
-import java.util.List;
-
 public interface UserService {
 
     UsersDTO getAllUsers(String filter);
+
+    UsersDTO getAllUsers();
 
     UserDetailDTO getUserDetail(String userName);
 
@@ -18,6 +18,8 @@ public interface UserService {
     UserDetailDTO createUser(UserInputDTO user);
 
     UserDetailDTO modifyUser(String userName, UserInputDTO user);
+
+    UserDetailDTO saveUser(User user);
 
     void deleteUser(String userName);
 

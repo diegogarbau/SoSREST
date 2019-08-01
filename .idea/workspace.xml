@@ -2,9 +2,54 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcfe94db-f043-4b11-9c15-ecc3aba485de" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/ErrorDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/adviseController/MessagesAdviseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/adviseController/UsersAdviseController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/messagesExceptions/MessagesExceptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/UsersExceptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/controller/impl/MsgControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/controller/impl/UserControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/application.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgDetailDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgDetailDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgInputDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgInputDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgSummaryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgSummaryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserDetailDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserDetailDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserInputDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserInputDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserSummaryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserSummaryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UsersDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UsersDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgInputDTOToMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgInputDTOToMsg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgSummaryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgSummaryDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/UserToUserDetailDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/UserToUserDetailDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/FacemashApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/FacemashApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/MsgController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/MsgController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/MsgControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/MsgControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/UserControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/UserControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/AlreadyFriendsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/AlreadyFriendsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/DuplicatedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/DuplicatedUserException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/MsgNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/messagesExceptions/MsgNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/NotFriendsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/NotFriendsException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/UserNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/UserNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/Msg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/Msg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/MsgService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/MsgService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/MsgServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/MsgServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/FacemashApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/FacemashApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/MsgServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/MsgServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/UserServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/MsgUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/MsgUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sos/facemash/entity/Msg.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sos/facemash/entity/Msg.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,11 +66,35 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/controller/impl/MsgControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgInputDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/MsgServiceTest.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserInputDTO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="70" column="58" selection-start-line="70" selection-start-column="58" selection-end-line="70" selection-end-column="58" />
+            <state relative-caret-position="299">
+              <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -34,40 +103,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/MsgUtils.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/controller/impl/UserControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1700">
-              <caret line="93" column="58" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/MsgServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="34" column="80" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="80" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1060">
-              <caret line="78" selection-start-line="78" selection-end-line="78" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/UserServiceTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2420">
-              <caret line="150" column="49" selection-start-line="150" selection-start-column="49" selection-end-line="150" selection-end-column="49" />
+            <state relative-caret-position="193">
+              <caret line="83" column="53" selection-start-line="83" selection-start-column="53" selection-end-line="83" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -80,8 +119,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -93,6 +132,7 @@
       <find>if</find>
       <find>else</find>
       <find>toStri</find>
+      <find>AllowMethods</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -101,53 +141,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/imp/utils/UserUtilsç.java" />
-        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/DuplicatedException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserInputDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/MsgNotFoundException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/UserNotFoundException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgDTOToMsg.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgSummaryDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/MsgService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/MsgControllerImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/MsgController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgSummaryDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgDetailDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/persistance/MsgDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/Msg.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/persistance/UserDAO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgInputDTOToMsg.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserDetailDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/UserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/UserControllerImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/imp/UserServiceImpTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/imp/utils/UserUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/AlreadyFriendsException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/NotFriendsException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/User.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/imp/UserServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/imp/MsgServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/imp/UserServiceImp.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/imp/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgInputDTO.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/CoreUtils.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/UserUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UsersDTO.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgssDTO.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/MsgServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/application.yaml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgDetailDTO.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/MsgServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/UserServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/adviseController/AlreadyFriendsException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/adviseController/UserNotFoundException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/ErrorDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/UsersExceptions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/AlreadyFriendsException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/UserNotFoundException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/MessagesExceptions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/MsgNotFoundException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/NotFriendsException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/DuplicatedException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/DuplicatedUserException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/adviseController/facemashAdviseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/AlreadyFriendsException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/messagesExceptions/MessagesExceptions.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/adviseController/UsersAdviseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/adviseController/MessagesAdviseController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/UserNotFoundException.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/application.yaml" />
+        <option value="$PROJECT_DIR$/facemash.iml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/FacemashApplicationTests.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/FacemashApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgInputDTOToMsg.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgDetailDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgDetailDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/MsgService.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/MsgUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/MsgControllerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/MsgController.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/controller/impl/MsgControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/Msg.java" />
+        <option value="$PROJECT_DIR$/src/test/resources/data.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/UserToUserDetailDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgSummaryDTO.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/MsgServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/MsgServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UsersDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/UserControllerImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserSummaryDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgInputDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgSummaryDTO.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserDetailDTO.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/sos/facemash/controller/impl/UserControllerTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserInputDTO.java" />
       </list>
     </option>
   </component>
@@ -190,6 +234,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -249,15 +294,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="facemash" type="462c0819:PsiDirectoryNode" />
-              <item name="Exceptions" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SoSREST" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SoSREST" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="facemash" type="462c0819:PsiDirectoryNode" />
               <item name="DTO" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -267,8 +303,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="facemash" type="462c0819:PsiDirectoryNode" />
-              <item name="DTO" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SoSREST" type="b2602c69:ProjectViewProjectNode" />
@@ -326,15 +361,40 @@
               <item name="facemash" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SoSREST" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoSREST" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="facemash" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SoSREST" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoSREST" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="facemash" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SoSREST" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SoSREST" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
@@ -347,6 +407,7 @@
       <recent name="com.sos.facemash.DTO" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.sos.facemash.controller.impl" />
       <recent name="com.sos.facemash.service" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -359,13 +420,15 @@
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\DEV\Projects\UDEMI\SoSREST\src\main\resources" />
+      <recent name="C:\DEV\Projects\UDEMI\SoSREST\src\test\resources" />
       <recent name="C:\DEV\Projects\UDEMI\SoSREST\src\main\resources\db\changelog" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.sos.facemash.utils" />
-      <recent name="com.sos.facemash.DTO.mapper" />
+      <recent name="com.sos.facemash.core.adviseController" />
+      <recent name="com.sos.facemash.core.exceptions" />
       <recent name="com.sos.facemash.DTO" />
-      <recent name="com.sos.facemash.core.Exceptions" />
+      <recent name="com.sos.facemash.controller.impl" />
+      <recent name="com.sos.facemash.utils" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\DEV\Projects\UDEMI\SoSREST\src\main\resources\db\changelog" />
@@ -383,19 +446,21 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.All in facemash">
-    <configuration name="All in facemash" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true" repeat_count="1000000">
+  <component name="RunManager" selected="JUnit.UserControllerTest.createUserBadRequestTest">
+    <configuration name="FacemashApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sos.facemash.FacemashApplication" />
       <module name="facemash" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="PARAMETERS" value="" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sos.facemash.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsgServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MsgServiceTest.getMsgWorksTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="facemash" />
       <extension name="coverage">
         <pattern>
@@ -405,73 +470,74 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.sos.facemash.service.impl" />
       <option name="MAIN_CLASS_NAME" value="com.sos.facemash.service.impl.MsgServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsgServiceTest.deleteMsgButMsgNotFoundTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="facemash" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sos.facemash.service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.sos.facemash.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.sos.facemash.service.impl.MsgServiceTest" />
-      <option name="METHOD_NAME" value="deleteMsgButMsgNotFoundTest" />
+      <option name="METHOD_NAME" value="getMsgWorksTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsgServiceTest.deleteMsgButUserNotFoundTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.createUserBadRequestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="facemash" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sos.facemash.service.impl.*" />
+          <option name="PATTERN" value="com.sos.facemash.controller.impl.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.sos.facemash.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.sos.facemash.service.impl.MsgServiceTest" />
-      <option name="METHOD_NAME" value="deleteMsgButUserNotFoundTest" />
+      <option name="PACKAGE_NAME" value="com.sos.facemash.controller.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.sos.facemash.controller.impl.UserControllerTest" />
+      <option name="METHOD_NAME" value="createUserBadRequestTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsgServiceTest.modifyMsgWorksTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.createUserButUserExistsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="facemash" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sos.facemash.service.impl.*" />
+          <option name="PATTERN" value="com.sos.facemash.controller.impl.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.sos.facemash.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.sos.facemash.service.impl.MsgServiceTest" />
-      <option name="METHOD_NAME" value="modifyMsgWorksTest" />
+      <option name="PACKAGE_NAME" value="com.sos.facemash.controller.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.sos.facemash.controller.impl.UserControllerTest" />
+      <option name="METHOD_NAME" value="createUserButUserExistsTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.getAllUsersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="facemash" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sos.facemash.controller.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sos.facemash.controller.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.sos.facemash.controller.impl.UserControllerTest" />
+      <option name="METHOD_NAME" value="getAllUsersTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.All in facemash" />
-      <item itemvalue="JUnit.MsgServiceTest" />
-      <item itemvalue="JUnit.MsgServiceTest.deleteMsgButMsgNotFoundTest" />
-      <item itemvalue="JUnit.MsgServiceTest.deleteMsgButUserNotFoundTest" />
-      <item itemvalue="JUnit.MsgServiceTest.modifyMsgWorksTest" />
+      <item itemvalue="Application.FacemashApplication" />
+      <item itemvalue="JUnit.MsgServiceTest.getMsgWorksTest" />
+      <item itemvalue="JUnit.UserControllerTest.getAllUsersTest" />
+      <item itemvalue="JUnit.UserControllerTest.createUserButUserExistsTest" />
+      <item itemvalue="JUnit.UserControllerTest.createUserBadRequestTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.All in facemash" />
-        <item itemvalue="JUnit.MsgServiceTest" />
-        <item itemvalue="JUnit.MsgServiceTest.deleteMsgButMsgNotFoundTest" />
-        <item itemvalue="JUnit.MsgServiceTest.deleteMsgButUserNotFoundTest" />
-        <item itemvalue="JUnit.MsgServiceTest.modifyMsgWorksTest" />
+        <item itemvalue="JUnit.UserControllerTest.createUserBadRequestTest" />
+        <item itemvalue="JUnit.UserControllerTest.createUserButUserExistsTest" />
+        <item itemvalue="Application.FacemashApplication" />
+        <item itemvalue="JUnit.UserControllerTest.getAllUsersTest" />
+        <item itemvalue="JUnit.MsgServiceTest.getMsgWorksTest" />
       </list>
     </recent_temporary>
   </component>
@@ -489,43 +555,52 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MsgServiceTest_modifyMsgWorksTest - 2019.07.30 at 09h 38m 39s.xml">
-      <configuration name="MsgServiceTest.modifyMsgWorksTest" configurationId="JUnit" />
+    <history-entry file="UserControllerTest_getUserWorksTest - 2019.08.01 at 10h 11m 40s.xml">
+      <configuration name="UserControllerTest.getUserWorksTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MsgServiceTest - 2019.07.30 at 09h 44m 55s.xml">
-      <configuration name="MsgServiceTest" configurationId="JUnit" />
+    <history-entry file="MsgServiceTest_getMsgWorksTest - 2019.08.01 at 10h 27m 49s.xml">
+      <configuration name="MsgServiceTest.getMsgWorksTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MsgServiceTest_deleteMsgButUserNotFoundTest - 2019.07.30 at 09h 52m 36s.xml">
-      <configuration name="MsgServiceTest.deleteMsgButUserNotFoundTest" configurationId="JUnit" />
+    <history-entry file="UserControllerTest_getAllUsersTest - 2019.08.01 at 12h 26m 06s.xml">
+      <configuration name="UserControllerTest.getAllUsersTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MsgServiceTest_deleteMsgButMsgNotFoundTest - 2019.07.30 at 09h 56m 28s.xml">
-      <configuration name="MsgServiceTest.deleteMsgButMsgNotFoundTest" configurationId="JUnit" />
+    <history-entry file="UserControllerTest_getAllUsersTest - 2019.08.01 at 12h 51m 51s.xml">
+      <configuration name="UserControllerTest.getAllUsersTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MsgServiceTest - 2019.07.30 at 10h 01m 11s.xml">
-      <configuration name="MsgServiceTest" configurationId="JUnit" />
+    <history-entry file="UserControllerTest_getAllUsersTest - 2019.08.01 at 12h 52m 46s.xml">
+      <configuration name="UserControllerTest.getAllUsersTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_facemash - 2019.07.30 at 10h 03m 39s.xml">
-      <configuration name="All in facemash" configurationId="JUnit" />
+    <history-entry file="UserControllerTest_createUserButUserExistsTest - 2019.08.01 at 13h 03m 00s.xml">
+      <configuration name="UserControllerTest.createUserButUserExistsTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_facemash_[100] - 2019.07.30 at 10h 56m 21s.xml">
-      <configuration name="All in facemash [100]" configurationId="JUnit" />
+    <history-entry file="UserControllerTest_createUserButUserExistsTest - 2019.08.01 at 13h 04m 39s.xml">
+      <configuration name="UserControllerTest.createUserButUserExistsTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_facemash_[100] - 2019.07.30 at 10h 57m 29s.xml">
-      <configuration name="All in facemash [100]" configurationId="JUnit" />
+    <history-entry file="UserControllerTest_createUserButUserExistsTest - 2019.08.01 at 14h 06m 20s.xml">
+      <configuration name="UserControllerTest.createUserButUserExistsTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_facemash_[1000] - 2019.07.30 at 10h 59m 28s.xml">
-      <configuration name="All in facemash [1000]" configurationId="JUnit" />
+    <history-entry file="UserControllerTest_createUserButUserExistsTest - 2019.08.01 at 14h 07m 16s.xml">
+      <configuration name="UserControllerTest.createUserButUserExistsTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_facemash_[1000] - 2019.07.30 at 11h 04m 15s.xml">
-      <configuration name="All in facemash [1000]" configurationId="JUnit" />
+    <history-entry file="UserControllerTest_createUserBadRequestTest - 2019.08.01 at 14h 17m 56s.xml">
+      <configuration name="UserControllerTest.createUserBadRequestTest" configurationId="JUnit" />
     </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19189766" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6527778" visible="true" weight="0.19189766" />
+      <window_info id="Structure" order="1" sideWeight="0.3472222" side_tool="true" weight="0.19189766" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="DB Browser" order="4" />
@@ -534,41 +609,57 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4978678" weight="0.32993197" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.880597" visible="true" weight="0.26417235" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.880597" visible="true" weight="0.29591838" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.8294243" weight="0.39909297" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32993197" />
       <window_info anchor="bottom" id="DB Execution Console" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Docker" order="9" />
-      <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.32993197" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32993197" />
+      <window_info anchor="bottom" id="Docker" order="9" weight="0.32993197" />
+      <window_info anchor="bottom" id="Inspection Results" order="10" weight="0.29024944" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.11940298" side_tool="true" weight="0.36507937" />
-      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.32993197" />
       <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49626866" weight="0.21315193" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" sideWeight="0.49821427" weight="0.23667377" />
+      <window_info anchor="right" id="Maven" order="3" sideWeight="0.49821427" visible="true" weight="0.17110874" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Enso" order="6" sideWeight="0.49306625" visible="true" weight="0.31449893" />
+      <window_info anchor="right" id="Enso" order="6" sideWeight="0.4920635" weight="0.13965885" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
-      <window_info anchor="right" id="Coverage" order="9" sideWeight="0.50693375" side_tool="true" visible="true" weight="0.31130064" />
+      <window_info active="true" anchor="right" id="Coverage" order="9" sideWeight="0.50793654" side_tool="true" visible="true" weight="0.31449893" />
     </layout>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java</url>
-          <line>94</line>
-          <properties />
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
         <watch expression="resultDTO" />
@@ -576,7 +667,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/SoSREST$All_in_facemash.ic" NAME="All in facemash Coverage Results" MODIFIED="1564473792618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SoSREST$All_in_facemash.ic" NAME="All in facemash Coverage Results" MODIFIED="1564489765080" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SoSREST$UserServiceImpTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1564135671221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sos.facemash.service.imp.*</FILTER>
     </SUITE>
@@ -586,6 +677,16 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>assertThat(resultDTO.getBody(), is(msg.getBody()))</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>msgDAO.findByIdAndOwner(msgId, userService.getUser(userName)</expression-string>
+        <language-id>JAVA</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>assertThat(resultDTO.getOwner(), is(user))</expression-string>
         <language-id>JAVA</language-id>
@@ -604,392 +705,159 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+    <entry file="jar://$MAVEN_REPOSITORY$/io/springfox/springfox-spring-web/2.9.2/springfox-spring-web-2.9.2-sources.jar!/springfox/documentation/spring/web/SpringfoxWebMvcConfiguration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="17" column="43" selection-start-line="17" selection-start-column="43" selection-end-line="17" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/UserToUserSummaryDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/DuplicatedException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" selection-start-line="6" selection-end-line="9" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/MsgNotFoundException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="52" lean-forward="true" selection-start-line="3" selection-start-column="52" selection-end-line="3" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/UserToUserDetailDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="6" column="35" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" />
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="45" column="21" selection-start-line="45" selection-start-column="21" selection-end-line="45" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/MsgController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_202/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="1256" selection-start-line="1256" selection-end-line="1256" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/persistance/UserDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/junit/platform/junit-platform-commons/1.5.0/junit-platform-commons-1.5.0-sources.jar!/org/junit/platform/commons/util/ReflectionUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="676" selection-start-line="676" selection-end-line="676" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_202/src.zip!/java/lang/invoke/LambdaForm.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_202/src.zip!/java/lang/invoke/DirectMethodHandle.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="282" selection-start-line="282" selection-end-line="282" />
+        <state>
+          <caret line="50" column="59" lean-forward="true" selection-start-line="50" selection-start-column="59" selection-end-line="50" selection-end-column="59" />
           <folding>
-            <element signature="e#12011#12012#0" expanded="true" />
+            <element signature="e#0#3616#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserDetailDTO.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.2.0.BUILD-SNAPSHOT/spring-webmvc-5.2.0.BUILD-20190709.093830-512.jar!/org/springframework/web/servlet/DispatcherServlet.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="137" column="56" lean-forward="true" selection-start-line="137" selection-start-column="56" selection-end-line="137" selection-end-column="56" />
+        <state relative-caret-position="80">
+          <caret line="50" column="45" lean-forward="true" selection-start-line="50" selection-start-column="45" selection-end-line="50" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/UserUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-619">
+          <caret line="13" column="44" selection-start-line="13" selection-start-column="44" selection-end-line="13" selection-end-column="44" />
           <folding>
-            <element signature="e#432#433#0" expanded="true" />
-            <element signature="e#463#464#0" expanded="true" />
-            <element signature="e#511#512#0" expanded="true" />
-            <element signature="e#551#552#0" expanded="true" />
-            <element signature="e#582#583#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#650#651#0" expanded="true" />
-            <element signature="e#682#683#0" expanded="true" />
-            <element signature="e#711#712#0" expanded="true" />
-            <element signature="e#739#740#0" expanded="true" />
-            <element signature="e#779#780#0" expanded="true" />
-            <element signature="e#813#814#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
-            <element signature="e#871#872#0" expanded="true" />
-            <element signature="e#912#913#0" expanded="true" />
-            <element signature="e#944#945#0" expanded="true" />
-            <element signature="e#979#980#0" expanded="true" />
-            <element signature="e#1010#1011#0" expanded="true" />
-            <element signature="e#1059#1060#0" expanded="true" />
-            <element signature="e#1099#1100#0" expanded="true" />
-            <element signature="e#1137#1138#0" expanded="true" />
-            <element signature="e#1167#1168#0" expanded="true" />
-            <element signature="e#1218#1219#0" expanded="true" />
-            <element signature="e#1256#1257#0" expanded="true" />
-            <element signature="e#1331#1332#0" expanded="true" />
-            <element signature="e#1438#1439#0" expanded="true" />
-            <element signature="e#1523#1524#0" expanded="true" />
-            <element signature="e#1646#1647#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/NotFriendsException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="28" column="63" selection-start-line="28" selection-start-column="63" selection-end-line="28" selection-end-column="63" />
+        <state relative-caret-position="40">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/UserNotFoundException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/UserNotFoundException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/AlreadyFriendsException.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_202/src.zip!/javax/xml/soap/MimeHeaders.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" selection-start-line="3" selection-end-line="8" selection-end-column="5" />
+        <state relative-caret-position="-866">
+          <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/core/Exceptions/NotFriendsException.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/com/h2database/h2/1.4.199/h2-1.4.199-sources.jar!/org/h2/store/PageOutputStream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="-26">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/User.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.2.0.BUILD-SNAPSHOT/spring-boot-2.2.0.BUILD-20190709.101308-423.jar!/org/springframework/boot/web/servlet/server/Jsp.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="89" lean-forward="true" selection-start-line="89" selection-end-line="89" />
+        <state relative-caret-position="-240">
           <folding>
-            <element signature="e#1314#1315#0" expanded="true" />
-            <element signature="e#1345#1346#0" expanded="true" />
+            <element signature="e#0#1046#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/UserInputDTOToUser.java">
+    <entry file="file://$PROJECT_DIR$/HELP.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="300">
+            <caret line="15" selection-start-line="15" selection-end-line="15" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.5.RELEASE/spring-core-5.1.5.RELEASE-sources.jar!/org/springframework/core/type/AnnotationMetadata.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="18" selection-start-line="18" selection-end-line="21" selection-end-column="55" />
+        <state relative-caret-position="182">
+          <caret line="33" column="17" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facemash.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-core/5.1.5.RELEASE/spring-core-5.1.5.RELEASE-sources.jar!/org/springframework/core/type/classreading/AnnotationMetadataReadingVisitor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="43" column="26" selection-start-line="43" selection-start-column="26" selection-end-line="43" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/UserServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="65" column="31" selection-start-line="65" selection-start-column="31" selection-end-line="65" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/FacemashApplicationTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgInputDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <caret line="9" column="7" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/UserUtils.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="420">
+          <caret line="42" column="43" lean-forward="true" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
         </state>
       </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_202/src.zip!/java/lang/ClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="356" selection-start-line="356" selection-end-line="356" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/BlockJUnit4ClassRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/runners/ParentRunner.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="328" selection-start-line="328" selection-end-line="328" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UsersDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-          <folding>
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#449#450#0" expanded="true" />
-            <element signature="e#477#478#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserSummaryDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgssDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="18" column="5" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#347#348#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserInputDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgSummaryDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgSummaryDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="40" selection-start-line="10" selection-start-column="40" selection-end-line="10" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="12" lean-forward="true" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        <state relative-caret-position="320">
+          <caret line="16" column="12" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/MsgControllerImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/application.yaml">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/UserControllerImpl.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/boot/spring-boot/2.1.3.RELEASE/spring-boot-2.1.3.RELEASE-sources.jar!/org/springframework/boot/web/servlet/error/ErrorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/persistance/MsgDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/CoreUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/mockito/mockito-core/2.28.2/mockito-core-2.28.2-sources.jar!/org/mockito/internal/creation/bytebuddy/MockMethodInterceptor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="122" selection-start-line="122" selection-end-line="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/service/MsgService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        <state relative-caret-position="240">
+          <caret line="26" column="3" lean-forward="true" selection-start-line="26" selection-start-column="3" selection-end-line="26" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgDetailDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="41" lean-forward="true" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+        <state relative-caret-position="308">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgInputDTOToMsg.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/UserInputDTOToUser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="176">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/Msg.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/service/MsgService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgDetailDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-660">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#669#670#0" expanded="true" />
-            <element signature="e#697#698#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.12/junit-4.12-sources.jar!/org/junit/internal/runners/model/ReflectiveCallable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/MsgServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="70" column="58" selection-start-line="70" selection-start-column="58" selection-end-line="70" selection-end-column="58" />
+        <state relative-caret-position="154">
+          <caret line="7" column="68" selection-start-line="7" selection-start-column="68" selection-end-line="7" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -998,32 +866,260 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/MsgUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="93" column="58" selection-start-line="93" selection-start-column="28" selection-end-line="93" selection-end-column="58" />
+        <state relative-caret-position="542">
+          <caret line="97" column="29" lean-forward="true" selection-start-line="97" selection-start-column="29" selection-end-line="97" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/MsgServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/MsgController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="34" column="80" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="80" />
+        <state relative-caret-position="198">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/UserToUserSummaryDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="72" selection-start-line="14" selection-start-column="72" selection-end-line="14" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/UserToUserDetailDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="19" column="91" lean-forward="true" selection-start-line="19" selection-start-column="91" selection-end-line="19" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgSummaryDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="10" column="27" lean-forward="true" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgInputDTOToMsg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/Msg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="37" lean-forward="true" selection-start-line="14" selection-end-line="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/FacemashApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1060">
-          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="242">
+          <caret line="85" column="5" lean-forward="true" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/UserServiceTest.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2420">
-          <caret line="150" column="49" selection-start-line="150" selection-start-column="49" selection-end-line="150" selection-end-column="49" />
+        <state relative-caret-position="166">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#1393#1394#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/MsgServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UsersDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/MsgServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-668">
+          <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/data.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="79" lean-forward="true" selection-start-line="10" selection-start-column="79" selection-end-line="10" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgDetailDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#669#670#0" expanded="true" />
+            <element signature="e#697#698#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/MsgControllerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="14" column="46" lean-forward="true" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserSummaryDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="28" lean-forward="true" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/UserControllerImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#870#871#0" expanded="true" />
+            <element signature="e#924#925#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/ErrorDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="6" selection-start-line="6" selection-end-line="6" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgssDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgSummaryDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="8" column="30" selection-start-line="8" selection-start-column="30" selection-end-line="8" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserDetailDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgInputDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/controller/impl/MsgControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/sos/facemash/controller/impl/UserControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="83" column="53" selection-start-line="83" selection-start-column="53" selection-end-line="83" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserInputDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

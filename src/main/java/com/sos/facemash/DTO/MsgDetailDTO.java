@@ -59,6 +59,7 @@ public class MsgDetailDTO {
         private User owner;
         private User destination;
 
+
         public Builder setBody(String body) {
             this.body = body;
             return this;

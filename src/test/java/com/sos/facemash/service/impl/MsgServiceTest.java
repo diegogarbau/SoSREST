@@ -4,8 +4,8 @@ import com.sos.facemash.DTO.MsgDetailDTO;
 import com.sos.facemash.DTO.MsgInputDTO;
 import com.sos.facemash.DTO.MsgssDTO;
 import com.sos.facemash.DTO.mapper.MsgInputDTOToMsg;
-import com.sos.facemash.core.Exceptions.MsgNotFoundException;
-import com.sos.facemash.core.Exceptions.UserNotFoundException;
+import com.sos.facemash.core.exceptions.messagesExceptions.MsgNotFoundException;
+import com.sos.facemash.core.exceptions.usersExceptions.UserNotFoundException;
 import com.sos.facemash.entity.Msg;
 import com.sos.facemash.entity.User;
 import com.sos.facemash.persistance.MsgDAO;
@@ -47,7 +47,7 @@ public class MsgServiceTest {
     @Test(expected = UserNotFoundException.class)
     public void getAllMsgButUserNotFoundTest() {
         when(userServiceMock.getUser(any())).thenThrow(new UserNotFoundException(""));
-        msgServiceTest.getAllMsg(CoreUtils.randomStringGenerator(), CoreUtils.randomStringGenerator());
+        msgServiceTest.getAllMsg(CoreUtils.randomStringGenerator(), CoreUtils.randomStringGenerator(),CoreUtils.random.nextInt(10));
     }
 
     @Test
@@ -56,11 +56,10 @@ public class MsgServiceTest {
         List<Msg> msgList = MsgUtils.msgOfUserRandomListGenerator(user);
         when(userServiceMock.getUser(any())).thenReturn(user);
         when(msgDAOMock.findAllByOwner(any())).thenReturn(msgList);
-        MsgssDTO resultDTO = msgServiceTest.getAllMsg(CoreUtils.randomStringGenerator(), "");
+        MsgssDTO resultDTO = msgServiceTest.getAllMsg(CoreUtils.randomStringGenerator(), "",1000);
         assertThat(resultDTO.getMsgss().size(), is(msgList.size()));
         resultDTO.getMsgss()
                 .forEach(msgSummaryDTO -> {
-                    assertThat(msgSummaryDTO.getOwner(), is(user));
                     assertThat(messageIsContained(msgList, msgSummaryDTO.getTitle()), is(true));
                 });
     }
@@ -74,11 +73,10 @@ public class MsgServiceTest {
         when(userServiceMock.getUser(any())).thenReturn(user);
         when(msgDAOMock.findAllByOwner(any())).thenReturn(msgList);
         msgList.addAll(msgFilteredList);
-        MsgssDTO resultDTO = msgServiceTest.getAllMsg(CoreUtils.randomStringGenerator(), common);
+        MsgssDTO resultDTO = msgServiceTest.getAllMsg(CoreUtils.randomStringGenerator(), common,100);
         assertThat(resultDTO.getMsgss().size(), is(msgFilteredList.size()));
         resultDTO.getMsgss()
                 .forEach(msgSummaryDTO -> {
-                    assertThat(msgSummaryDTO.getOwner(), is(user));
                     assertThat(msgSummaryDTO.getTitle(), containsString(common));
                     assertThat(messageIsContained(msgList, msgSummaryDTO.getTitle()), is(true));
                 });
@@ -149,7 +147,6 @@ public class MsgServiceTest {
         assertThat(resultDTO.getOwner().getUserName(), is(user.getUserName()));
         assertThat(resultDTO.getTitle(), is(msgInput.getTitle()));
         assertThat(resultDTO.getBody(), is(msgInput.getBody()));
-        assertThat(resultDTO.getDate(), is(msgInput.getDate()));
     }
 
     @Test(expected = UserNotFoundException.class)

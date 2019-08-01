@@ -1,45 +1,36 @@
 package com.sos.facemash.DTO;
 
-import com.sos.facemash.entity.User;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
-
+@JsonRootName(value = "message")
+@JsonPropertyOrder({"title", "date",})
 public class MsgSummaryDTO {
     private String title;
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
-    private User owner;
 
 
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    private void setTitle(String title) {
         this.title = title;
     }
 
-
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
+    private void setDate(Date date) {
         this.date = date;
     }
 
-    public User getOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
 
     public static class Builder {
 
         private String title;
         private Date date;
-        private User owner;
 
         public Builder setTitle(String title) {
             this.title = title;
@@ -51,17 +42,11 @@ public class MsgSummaryDTO {
             return this;
         }
 
-        public Builder setOwner(User owner) {
-            this.owner = owner;
-            return this;
-        }
-
         public MsgSummaryDTO build() {
             MsgSummaryDTO msgDTO = new MsgSummaryDTO();
 
             msgDTO.setTitle(title);
             msgDTO.setDate(date);
-            msgDTO.setOwner(owner);
             return msgDTO;
         }
     }

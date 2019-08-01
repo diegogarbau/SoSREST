@@ -1,4 +1,4 @@
-package com.sos.facemash.core.Exceptions;
+package com.sos.facemash.core.exceptions;
 
 public class AlreadyFriendsException extends RuntimeException {
     private static final long serialVersionUID = 1L;

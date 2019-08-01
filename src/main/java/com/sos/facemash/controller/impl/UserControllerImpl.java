@@ -10,7 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
 
 @RestController
 public class UserControllerImpl implements UserController {
@@ -23,10 +23,16 @@ public class UserControllerImpl implements UserController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/users{filter}/")
+    @GetMapping("/users/{filter}/")
     @Override
     public UsersDTO getAllUsers(@PathVariable("filter") String filter) {
         return userService.getAllUsers(filter);
+    }
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping("/users//")
+    @Override
+    public UsersDTO getAllUsers(){
+        return userService.getAllUsers();
     }
 
     @ResponseStatus(HttpStatus.OK)
@@ -37,23 +43,21 @@ public class UserControllerImpl implements UserController {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/user")
-    @Validated
+    @PostMapping("/users/")
     @Override
-    public UserDetailDTO createUser(@RequestBody UserInputDTO userInputDTO) {
+    public UserDetailDTO createUser(@Valid @RequestBody UserInputDTO userInputDTO) {
         return userService.createUser(userInputDTO);
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @PutMapping("/user/{userName}")
-    @Validated
+    @PutMapping("/users/{userName}")
     @Override
-    public UserDetailDTO modifyUser(@PathVariable("userName") String userName, @RequestBody UserInputDTO userInputDTO) {
+    public UserDetailDTO modifyUser(@PathVariable("userName") String userName,@Valid @RequestBody UserInputDTO userInputDTO) {
         return userService.modifyUser(userName, userInputDTO);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/user/{userName}")
+    @DeleteMapping("/users/{userName}")
     @Override
     public void deleteUser(@PathVariable("userName") String userName) {
         userService.deleteUser(userName);
@@ -61,22 +65,22 @@ public class UserControllerImpl implements UserController {
 
     @Override
     @ResponseStatus(HttpStatus.OK)
-    @PutMapping("/user/{userName}/friend/{friendUserName}")
-    public UsersDTO addFriend(@PathVariable("userName") String userName,@PathVariable("friendUserName")  String friendUserName) {
-        return userService.addFriend( userName, friendUserName);
+    @PutMapping("/users/{userName}/friends/{friendUserName}")
+    public UsersDTO addFriend(@PathVariable("userName") String userName, @PathVariable("friendUserName") String friendUserName) {
+        return userService.addFriend(userName, friendUserName);
     }
 
     @Override
     @ResponseStatus(HttpStatus.OK)
-    @DeleteMapping("/user/{userName}/friend/{friendUserName}")
-    public UsersDTO deleteFriend(@PathVariable("userName") String userName,@PathVariable("friendUserName")  String friendUserName) {
-        return userService.deleteFriend( userName, friendUserName);
+    @DeleteMapping("/users/{userName}/friends/{friendUserName}")
+    public UsersDTO deleteFriend(@PathVariable("userName") String userName, @PathVariable("friendUserName") String friendUserName) {
+        return userService.deleteFriend(userName, friendUserName);
     }
 
     @Override
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/user/{userName}/friends/")
-    public UsersDTO getAllFriend(@PathVariable("userName")  String userName) {
+    @GetMapping("/users/{userName}/friends/")
+    public UsersDTO getAllFriends(@PathVariable("userName") String userName) {
         return userService.getFriends(userName);
     }
 }

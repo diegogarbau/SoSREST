@@ -6,10 +6,10 @@ import com.sos.facemash.DTO.UserInputDTO;
 import com.sos.facemash.DTO.UserSummaryDTO;
 import com.sos.facemash.DTO.UsersDTO;
 import com.sos.facemash.DTO.mapper.UserInputDTOToUser;
-import com.sos.facemash.core.Exceptions.AlreadyFriendsException;
-import com.sos.facemash.core.Exceptions.DuplicatedException;
-import com.sos.facemash.core.Exceptions.NotFriendsException;
-import com.sos.facemash.core.Exceptions.UserNotFoundException;
+import com.sos.facemash.core.exceptions.usersExceptions.AlreadyFriendsException;
+import com.sos.facemash.core.exceptions.usersExceptions.DuplicatedUserException;
+import com.sos.facemash.core.exceptions.usersExceptions.NotFriendsException;
+import com.sos.facemash.core.exceptions.usersExceptions.UserNotFoundException;
 import com.sos.facemash.entity.User;
 import com.sos.facemash.persistance.UserDAO;
 import com.sos.facemash.service.UserService;
@@ -97,7 +97,7 @@ public class UserServiceTest {
         assertThat(resultDTO.getPhone(), is(optionalUser.get().getPhone()));
     }
 
-    @Test(expected = DuplicatedException.class)
+    @Test(expected = DuplicatedUserException.class)
     public void createUserThrowsDuplicatedExceptionTest() {
         when(userDAOMock.findByUserName(any())).thenReturn(Optional.of(UserUtils.UserRandomGenerator()));
         userServiceTest.createUser(UserUtils.UserInputDTORandomGenerator());

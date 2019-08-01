@@ -1,5 +1,8 @@
 package com.sos.facemash.DTO;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonPropertyOrder({"userName", "mail"})
 public class UserSummaryDTO {
 
     private String userName;

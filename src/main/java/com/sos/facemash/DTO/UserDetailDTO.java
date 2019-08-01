@@ -1,19 +1,20 @@
 package com.sos.facemash.DTO;
 
-import com.sos.facemash.entity.Msg;
-import com.sos.facemash.entity.User;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import java.util.List;
-
+@JsonRootName(value = "User ")
+@JsonPropertyOrder({"userName", "mail", "phone", "name", "lastName", "friends", "messagesSent", "messagesReceived"})
 public class UserDetailDTO {
     private String userName;
     private String mail;
     private int phone;
     private String name;
     private String lastName;
-    private List<User> friends;
-    private List<Msg> messagesSent;
-    private List<Msg> messagesReceived;
+    private List<UserSummaryDTO> friends;
+    private List<MsgSummaryDTO> messagesSent;
+    private List<MsgSummaryDTO> messagesReceived;
 
     public String getUserName() {
         return userName;
@@ -55,38 +56,39 @@ public class UserDetailDTO {
         this.lastName = lastName;
     }
 
-    public List<User> getFriends() {
+    public List<UserSummaryDTO> getFriends() {
         return friends;
     }
 
-    private void setFriends(List<User> friends) {
+    private void setFriends(List<UserSummaryDTO> friends) {
         this.friends = friends;
     }
 
-    public List<Msg> getMessagesSent() {
+    public List<MsgSummaryDTO> getMessagesSent() {
         return messagesSent;
     }
 
-    public void setMessagesSent(List<Msg> messagesSent) {
+    public void setMessagesSent(List<MsgSummaryDTO> messagesSent) {
         this.messagesSent = messagesSent;
     }
 
-    public List<Msg> getMessagesReceived() {
+    public List<MsgSummaryDTO> getMessagesReceived() {
         return messagesReceived;
     }
 
-    public void setMessagesReceived(List<Msg> messagesReceived) {
+    public void setMessagesReceived(List<MsgSummaryDTO> messagesReceived) {
         this.messagesReceived = messagesReceived;
     }
+
     public static class Builder {
         private String userName;
         private String mail;
         private int phone;
         private String name;
         private String lastName;
-        private List<User> friends;
-        private List<Msg> messagesSent;
-        private List<Msg> messagesReceived;
+        private List<UserSummaryDTO> friends;
+        private List<MsgSummaryDTO> messagesSent;
+        private List<MsgSummaryDTO> messagesReceived;
 
         public Builder setUserName(String userName) {
             this.userName = userName;
@@ -113,16 +115,17 @@ public class UserDetailDTO {
             return this;
         }
 
-        public Builder setFriends(List<User> friends) {
+        public Builder setFriends(List<UserSummaryDTO> friends) {
             this.friends = friends;
             return this;
         }
 
-        public Builder setMessagesReceived(List<Msg> messagesReceived) {
+        public Builder setMessagesReceived(List<MsgSummaryDTO> messagesReceived) {
             this.messagesReceived = messagesReceived;
             return this;
         }
-        public Builder setMessagesSent(List<Msg> messagesSent) {
+
+        public Builder setMessagesSent(List<MsgSummaryDTO> messagesSent) {
             this.messagesSent = messagesSent;
             return this;
         }
