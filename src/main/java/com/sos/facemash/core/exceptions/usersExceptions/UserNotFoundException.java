@@ -1,6 +1,6 @@
-package com.sos.facemash.core.Exceptions;
+package com.sos.facemash.core.exceptions.usersExceptions;
 
-public class UserNotFoundException extends RuntimeException {
+public class UserNotFoundException extends UsersExceptions {
     private static final long serialVersionUID = 1L;
     public UserNotFoundException(String message) {
         super(message);

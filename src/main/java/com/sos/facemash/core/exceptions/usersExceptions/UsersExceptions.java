@@ -1,4 +1,4 @@
-package com.sos.facemash.core.exceptions;
+package com.sos.facemash.core.exceptions.usersExceptions;
 
 public class UsersExceptions extends RuntimeException {
     private static final long serialVersionUID = 1L;

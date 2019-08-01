@@ -1,6 +1,6 @@
-package com.sos.facemash.core.Exceptions;
+package com.sos.facemash.core.exceptions.usersExceptions;
 
-public class NotFriendsException extends RuntimeException {
+public class NotFriendsException extends UsersExceptions {
     private static final long serialVersionUID = 1L;
 
     public NotFriendsException(String message) {

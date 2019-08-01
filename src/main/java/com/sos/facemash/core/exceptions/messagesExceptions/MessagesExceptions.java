@@ -1,9 +1,9 @@
-package com.sos.facemash.core.exceptions;
+package com.sos.facemash.core.exceptions.messagesExceptions;
 
-public class UsersExceptions extends RuntimeException {
+public class MessagesExceptions extends RuntimeException {
     private static final long serialVersionUID = 1L;
 
-    public UsersExceptions(String message) {
+    public MessagesExceptions(String message) {
         super(message);
         // TODO Auto-generated constructor stub
     }

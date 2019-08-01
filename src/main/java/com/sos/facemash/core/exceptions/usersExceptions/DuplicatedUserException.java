@@ -1,10 +1,10 @@
-package com.sos.facemash.core.Exceptions;
+package com.sos.facemash.core.exceptions.usersExceptions;
 
-public class DuplicatedException extends RuntimeException {
+public class DuplicatedUserException extends UsersExceptions {
 
     private static final long serialVersionUID = 1L;
 
-    public DuplicatedException(String message) {
+    public DuplicatedUserException(String message) {
         super(message);
         // TODO Auto-generated constructor stub
     }
