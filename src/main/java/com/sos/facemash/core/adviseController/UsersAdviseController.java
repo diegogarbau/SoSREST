@@ -34,7 +34,7 @@ public class UsersAdviseController {
     @ExceptionHandler(UserNotFoundException.class)
     public ResponseEntity<ErrorDTO> userNotFoundError(UserNotFoundException exception) {
         ErrorDTO ErrorDTO = new ErrorDTO(exception.getMessage());
-        return new ResponseEntity<>(ErrorDTO, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(ErrorDTO, HttpStatus.NOT_FOUND);
     }
 
 }

@@ -13,3 +13,4 @@ insert into USERS (user_name, mail, phone, name, last_name) values('charlie_magi
 
 insert into MESSAGES (id,title, body, date, messages_owner) values(1,'prueba1','Esto es un mensaje de prueba','2019-05-17','arc90');
 insert into MESSAGES_SENT  (users_user_name, messages_id) values('arc90',1);
+insert into FRIENDS  (user_name, friend_id) values('arc90','charlie_magic');

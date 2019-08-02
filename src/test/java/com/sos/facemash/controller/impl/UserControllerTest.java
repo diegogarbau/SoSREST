@@ -12,10 +12,10 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -24,7 +24,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 @WebAppConfiguration
 @RunWith(SpringRunner.class)
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_CLASS)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 public class UserControllerTest {
 
     private MockMvc mockMvc;
@@ -37,6 +37,7 @@ public class UserControllerTest {
     }
 
     @Test
+    @Transactional
     public void getAllUsersTest() throws Exception {
         ResultActions result = mockMvc.perform(get("/users/{filter}", ""));
         result.andDo(print());
@@ -87,7 +88,7 @@ public class UserControllerTest {
     }
 
     @Test
-    public void createUserBadRequestTest()throws Exception {
+    public void createUserBadRequestTest() throws Exception {
         ResultActions result = mockMvc.perform(post("/users/")
                 .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
                 .content(
@@ -98,14 +99,95 @@ public class UserControllerTest {
     }
 
     @Test
-    public void createUserButUserExistsTest() {
+    public void createUserButUserExistsTest() throws Exception {
+        ResultActions result = mockMvc.perform(post("/users/")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .content(
+                        "{ \"lastName\": \"poel\", \"mail\": \"qwsr123@coldmail.com\", \"name\": \"ret\", \"phone\": 232179234, \"userName\": \"arc90\"}"
+                ));
+        result.andDo(print());
+        result.andExpect(status().isBadRequest());
     }
 
     @Test
-    public void modifyMsg() {
+    public void ModifyUserWorksTest() throws Exception {
+        ResultActions result = mockMvc.perform(put("/users/{userName}", "arc90")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .content(
+                        "{ \"lastName\": \"lastNameModified\", \"mail\": \"modifieda@coldmail.com\", \"name\": \"modified\", \"phone\": 100000000, \"userName\": \"arc90\"}"
+                ));
+        result.andDo(print());
+        result.andExpect(status().isOk())
+                .andExpect(jsonPath("$.userName").value("arc90"))
+                .andExpect(jsonPath("$.mail").value("modifieda@coldmail.com"))
+                .andExpect(jsonPath("$.phone").value(100000000))
+                .andExpect(jsonPath("$.name").value("modified"))
+                .andExpect(jsonPath("$.lastName").value("lastNameModified"));
     }
 
     @Test
-    public void deleteMsg() {
+    public void ModifyUserButUserNotFoundWorksTest() throws Exception {
+        ResultActions result = mockMvc.perform(put("/users/{userName}", "undefined")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .content(
+                        "{ \"lastName\": \"lastNameModified\", \"mail\": \"modifieda@coldmail.com\", \"name\": \"modified\", \"phone\": 100000000, \"userName\": \"undefined\"}"
+                ));
+        result.andDo(print());
+        result.andExpect(status().isNotFound());
+
+    }
+
+    @Test
+    public void ModifyUserButBadRequestWorksTest() throws Exception {
+        ResultActions result = mockMvc.perform(put("/users/{userName}", "undefined")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .content(
+                        "{ \"lastName\": \"lastNameModified\", \"mail\": \"modifieda@coldmail.com\", \"phone\": 100000000, \"userName\": \"undefined\"}"
+                ));
+        result.andDo(print());
+        result.andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void deleteUserWorksTest() throws Exception {
+        ResultActions result = mockMvc.perform(delete("/users/{userName}", "beblie16")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+
+        result.andDo(print());
+        result.andExpect(status().isNoContent());
+    }
+
+    @Test
+    public void deleteUserButNotFoundTest() throws Exception {
+        ResultActions result = mockMvc.perform(delete("/users/{userName}", "undefined")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+
+        result.andDo(print());
+        result.andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void addFriendsWorksTest() throws Exception {
+        ResultActions result = mockMvc.perform(put("/users/{userName}/friends/{friendUserName}", "arc90", "beblie16")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+        result.andDo(print());
+        result.andExpect(status().isOk())
+                .andExpect(jsonPath("$.users.[0].userName").value("beblie16"));
+    }
+
+    @Test
+    public void addFriendsButAlreadyFriendsTest() throws Exception {
+        ResultActions result = mockMvc.perform(put("/users/{userName}/friends/{friendUserName}", "arc90", "charlie_magic")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+        result.andDo(print());
+        result.andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void addFriendButUserNotFoundTest() throws Exception {
+        ResultActions result = mockMvc.perform(put("/users/{userName}/friends/{friendUserName}", "arc90", "undefined")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+        result.andDo(print());
+        result.andExpect(status().isNotFound());
     }
 }

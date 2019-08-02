@@ -7,7 +7,6 @@ import com.sos.facemash.controller.UserController;
 import com.sos.facemash.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -28,10 +27,11 @@ public class UserControllerImpl implements UserController {
     public UsersDTO getAllUsers(@PathVariable("filter") String filter) {
         return userService.getAllUsers(filter);
     }
+
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/users//")
     @Override
-    public UsersDTO getAllUsers(){
+    public UsersDTO getAllUsers() {
         return userService.getAllUsers();
     }
 
@@ -52,7 +52,7 @@ public class UserControllerImpl implements UserController {
     @ResponseStatus(HttpStatus.OK)
     @PutMapping("/users/{userName}")
     @Override
-    public UserDetailDTO modifyUser(@PathVariable("userName") String userName,@Valid @RequestBody UserInputDTO userInputDTO) {
+    public UserDetailDTO modifyUser(@PathVariable("userName") String userName, @Valid @RequestBody UserInputDTO userInputDTO) {
         return userService.modifyUser(userName, userInputDTO);
     }
 

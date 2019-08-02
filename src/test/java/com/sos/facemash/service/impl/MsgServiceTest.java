@@ -59,9 +59,7 @@ public class MsgServiceTest {
         MsgssDTO resultDTO = msgServiceTest.getAllMsg(CoreUtils.randomStringGenerator(), "",1000);
         assertThat(resultDTO.getMsgss().size(), is(msgList.size()));
         resultDTO.getMsgss()
-                .forEach(msgSummaryDTO -> {
-                    assertThat(messageIsContained(msgList, msgSummaryDTO.getTitle()), is(true));
-                });
+                .forEach(msgSummaryDTO -> assertThat(messageIsContained(msgList, msgSummaryDTO.getTitle()), is(true)));
     }
 
     @Test
