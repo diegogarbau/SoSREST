@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @JsonRootName(value = "Error")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ErrorDTO {
-    private String msg;
+    private final String msg;
 
     public ErrorDTO(String msg) {
         this.msg = msg;

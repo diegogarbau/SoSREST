@@ -13,30 +13,30 @@ public class MsgUtils extends CoreUtils {
 
     public static Msg ownMsgRandomGenerator(User owner) {
         return new Msg.Builder()
-                .setId(random.nextLong())
+                .setId(RANDOM.nextLong())
                 .setTitle(randomStringGenerator())
                 .setBody(randomStringGenerator())
-                .setDate(new Date(random.nextLong()))
+                .setDate(new Date(RANDOM.nextLong()))
                 .setOwner(owner)
                 .build();
     }
 
     private static Msg ownMsgRandomWithFilterGenerator(User owner, String common) {
         return new Msg.Builder()
-                .setId(random.nextLong())
+                .setId(RANDOM.nextLong())
                 .setTitle(common + "-" + randomStringGenerator())
                 .setBody(common + "-" + randomStringGenerator())
-                .setDate(new Date(random.nextLong()))
+                .setDate(new Date(RANDOM.nextLong()))
                 .setOwner(owner)
                 .build();
     }
 
     private static Msg msgRandomGeneratorWithDest(User owner, User destinatary) {
         return new Msg.Builder()
-                .setId(random.nextLong())
+                .setId(RANDOM.nextLong())
                 .setTitle(randomStringGenerator())
                 .setBody(randomStringGenerator())
-                .setDate(new Date(random.nextLong()))
+                .setDate(new Date(RANDOM.nextLong()))
                 .setOwner(owner)
                 .setDestination(destinatary)
                 .build();
@@ -44,10 +44,10 @@ public class MsgUtils extends CoreUtils {
 
     public static Msg msgRandomGenerator() {
         return new Msg.Builder()
-                .setId(random.nextLong())
+                .setId(RANDOM.nextLong())
                 .setTitle(randomStringGenerator())
                 .setBody(randomStringGenerator())
-                .setDate(new Date(random.nextLong()))
+                .setDate(new Date(RANDOM.nextLong()))
                 .setOwner(UserUtils.UserRandomGenerator())
                 .setDestination(UserUtils.UserRandomGenerator())
                 .build();
@@ -62,20 +62,20 @@ public class MsgUtils extends CoreUtils {
     }
 
     public static List<Msg> msgRandomListGenerator() {
-        return IntStream.rangeClosed(0, random.nextInt(8) + 1)
+        return IntStream.rangeClosed(0, RANDOM.nextInt(8) + 1)
                 .mapToObj(i -> msgRandomGenerator())
                 .collect(Collectors.toList());
     }
 
     public static List<Msg> msgOfUserRandomListGenerator(User owner) {
-        return IntStream.rangeClosed(0, random.nextInt(8) + 1)
+        return IntStream.rangeClosed(0, RANDOM.nextInt(8) + 1)
                 .mapToObj(i -> ownMsgRandomGenerator(owner))
                 .collect(Collectors.toList());
     }
 
 
     public static List<Msg> msgOfUserAndFilterRandomListGenerator(User owner, String common) {
-        return IntStream.rangeClosed(0, random.nextInt(8) + 1)
+        return IntStream.rangeClosed(0, RANDOM.nextInt(8) + 1)
                 .mapToObj(i -> ownMsgRandomWithFilterGenerator(owner, common))
                 .collect(Collectors.toList());
     }

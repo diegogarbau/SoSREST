@@ -1,7 +1,5 @@
 package com.sos.facemash.DTO;
 
-import com.sos.facemash.entity.User;
-
 import java.util.Date;
 
 public class MsgDetailDTO {

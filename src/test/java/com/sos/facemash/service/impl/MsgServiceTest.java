@@ -47,7 +47,7 @@ public class MsgServiceTest {
     @Test(expected = UserNotFoundException.class)
     public void getAllMsgButUserNotFoundTest() {
         when(userServiceMock.getUser(any())).thenThrow(new UserNotFoundException(""));
-        msgServiceTest.getAllMsg(CoreUtils.randomStringGenerator(), CoreUtils.randomStringGenerator(),CoreUtils.random.nextInt(10));
+        msgServiceTest.getAllMsg(CoreUtils.randomStringGenerator(), CoreUtils.randomStringGenerator(),CoreUtils.RANDOM.nextInt(10));
     }
 
     @Test
@@ -83,7 +83,7 @@ public class MsgServiceTest {
     @Test(expected = MsgNotFoundException.class)
     public void getMsgNotFoundTest() {
         when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.empty());
-        msgServiceTest.getMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong());
+        msgServiceTest.getMsg(CoreUtils.randomStringGenerator(), CoreUtils.RANDOM.nextLong());
     }
 
     @Test
@@ -91,7 +91,7 @@ public class MsgServiceTest {
         User user = UserUtils.UserRandomGenerator();
         Msg msg = MsgUtils.ownMsgRandomGenerator(user);
         when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.of(msg));
-        MsgDetailDTO resultDTO = msgServiceTest.getMsg(user.getUserName(), CoreUtils.random.nextLong());
+        MsgDetailDTO resultDTO = msgServiceTest.getMsg(user.getUserName(), CoreUtils.RANDOM.nextLong());
         assertThat(resultDTO.getOwner(), is(user.getUserName()));
         assertThat(resultDTO.getTitle(), is(msg.getTitle()));
         assertThat(resultDTO.getBody(), is(msg.getBody()));
@@ -126,7 +126,7 @@ public class MsgServiceTest {
     public void modifyMsgButUserNotFoundTest() {
         MsgInputDTO msgInput = MsgUtils.msgInputDTORandomGenerator();
         when(userServiceMock.getUser(any())).thenThrow(new UserNotFoundException(""));
-        msgServiceTest.modifyMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong(), msgInput);
+        msgServiceTest.modifyMsg(CoreUtils.randomStringGenerator(), CoreUtils.RANDOM.nextLong(), msgInput);
     }
 
     @Test(expected = MsgNotFoundException.class)
@@ -135,7 +135,7 @@ public class MsgServiceTest {
         MsgInputDTO msgInput = MsgUtils.msgInputDTORandomGenerator();
         when(userServiceMock.getUser(any())).thenReturn(user);
         when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.empty());
-        msgServiceTest.modifyMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong(), msgInput);
+        msgServiceTest.modifyMsg(CoreUtils.randomStringGenerator(), CoreUtils.RANDOM.nextLong(), msgInput);
     }
 
     @Test
@@ -147,7 +147,7 @@ public class MsgServiceTest {
         when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.of(msg));
         Msg updatedMsg = msg.updateMsg(MsgInputDTOToMsg.map(msgInput,null));
         when(msgDAOMock.save(any())).thenReturn(updatedMsg);
-        MsgDetailDTO resultDTO = msgServiceTest.modifyMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong(), msgInput);
+        MsgDetailDTO resultDTO = msgServiceTest.modifyMsg(CoreUtils.randomStringGenerator(), CoreUtils.RANDOM.nextLong(), msgInput);
         assertThat(resultDTO.getOwner(), is(user.getUserName()));
         assertThat(resultDTO.getTitle(), is(msgInput.getTitle()));
         assertThat(resultDTO.getBody(), is(msgInput.getBody()));
@@ -156,7 +156,7 @@ public class MsgServiceTest {
     @Test(expected = UserNotFoundException.class)
     public void deleteMsgButUserNotFoundTest() {
         when(userServiceMock.getUser(any())).thenThrow(new UserNotFoundException(""));
-        msgServiceTest.deleteMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong());
+        msgServiceTest.deleteMsg(CoreUtils.randomStringGenerator(), CoreUtils.RANDOM.nextLong());
     }
 
     @Test(expected = MsgNotFoundException.class)
@@ -164,7 +164,7 @@ public class MsgServiceTest {
         User user = UserUtils.UserRandomGenerator();
         when(userServiceMock.getUser(any())).thenReturn(user);
         when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.empty());
-        msgServiceTest.deleteMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong());
+        msgServiceTest.deleteMsg(CoreUtils.randomStringGenerator(), CoreUtils.RANDOM.nextLong());
     }
 
     @Test
@@ -173,7 +173,7 @@ public class MsgServiceTest {
         Msg msg = MsgUtils.ownMsgRandomGenerator(user);
         when(userServiceMock.getUser(any())).thenReturn(user);
         when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.of(msg));
-        msgServiceTest.deleteMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong());
+        msgServiceTest.deleteMsg(CoreUtils.randomStringGenerator(), CoreUtils.RANDOM.nextLong());
         assertThat(true, is(true));
     }
 

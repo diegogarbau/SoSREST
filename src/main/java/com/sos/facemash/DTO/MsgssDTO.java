@@ -8,7 +8,7 @@ import java.util.List;
 @JsonRootName(value = "Messages")
 public class MsgssDTO {
     @JsonProperty(value = "messages")
-    private List<MsgSummaryDTO> msgss;
+    private final List<MsgSummaryDTO> msgss;
 
     public MsgssDTO(List<MsgSummaryDTO> msgss) {
         this.msgss = msgss;

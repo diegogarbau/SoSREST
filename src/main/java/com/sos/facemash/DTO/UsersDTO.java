@@ -8,7 +8,7 @@ import java.util.List;
 @JsonRootName(value = "Users")
 public class UsersDTO {
     @JsonProperty(value = "users")
-    private List<UserSummaryDTO> users;
+    private final List<UserSummaryDTO> users;
 
     public UsersDTO(List<UserSummaryDTO> users) {
         this.users = users;

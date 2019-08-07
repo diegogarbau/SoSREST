@@ -16,14 +16,12 @@ import com.sos.facemash.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private UserDAO userDAO;
+    private final UserDAO userDAO;
 
     @Autowired
     public UserServiceImpl(UserDAO userDAO) {
@@ -51,6 +49,7 @@ public class UserServiceImpl implements UserService {
         return userDAO.findByUserName(userName).orElseThrow(()
                 -> new UserNotFoundException("El usuario no figura en la base de datos"));
     }
+
     public User getUserOptional(String userName) {
         return userDAO.findByUserName(userName).orElse(null);
     }
@@ -119,10 +118,10 @@ public class UserServiceImpl implements UserService {
     private UsersDTO getFriendsList(User user) {
         return new UsersDTO(
                 Stream
-                .concat(user.getFriends().stream(),
-                        user.getFriendOf().stream())
-                .distinct()
-                .map(UserToUserSummaryDTO::map)
-                .collect(Collectors.toList()));
+                        .concat(user.getFriends().stream(),
+                                user.getFriendOf().stream())
+                        .distinct()
+                        .map(UserToUserSummaryDTO::map)
+                        .collect(Collectors.toList()));
     }
 }

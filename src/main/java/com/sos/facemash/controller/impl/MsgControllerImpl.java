@@ -14,7 +14,7 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("users")
 public class MsgControllerImpl implements MsgController {
-    private MsgService msgService;
+    private final MsgService msgService;
 
     @Autowired
     public MsgControllerImpl(MsgService msgService) {

@@ -2,35 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcfe94db-f043-4b11-9c15-ecc3aba485de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/validators/PhoneConstraint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/validators/PhoneValidator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/ErrorDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/ErrorDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgDetailDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgDetailDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgSummaryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgSummaryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserInputDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UserInputDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgInputDTOToMsg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgInputDTOToMsg.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgDetailDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgDetailDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgSummaryDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/mapper/MsgToMsgSummaryDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/MsgController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/MsgController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgssDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgssDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UsersDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UsersDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/MsgControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/MsgControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/adviseController/MessagesAdviseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/adviseController/MessagesAdviseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/adviseController/UsersAdviseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/adviseController/UsersAdviseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/Msg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/Msg.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/UserControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/UserControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/MsgServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/MsgServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/controller/impl/MsgControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/controller/impl/MsgControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/controller/impl/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/controller/impl/UserControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/MsgServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/MsgServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/CoreUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/CoreUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/MsgUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/MsgUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/data.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sos/facemash/entity/Msg.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sos/facemash/entity/Msg.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/UserUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/UserUtils.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,7 +25,7 @@
   </component>
   <component name="CoverageViewManager">
     <option name="myAutoScrollToSource" value="true" />
-    <option name="myElementSize" value="120" />
+    <option name="myElementSize" value="133" />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -260,7 +245,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java</url>
-          <line>106</line>
+          <line>105</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -270,7 +255,7 @@
     <SUITE FILE_PATH="coverage/SoSREST$MsgControllerTest.ic" NAME="MsgControllerTest Coverage Results" MODIFIED="1565092209823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sos.facemash.controller.impl.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SoSREST$All_in_facemash.ic" NAME="All in facemash Coverage Results" MODIFIED="1565172656012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SoSREST$All_in_facemash.ic" NAME="All in facemash Coverage Results" MODIFIED="1565173131813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SoSREST$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1564391369817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sos.facemash.service.impl.*</FILTER>
     </SUITE>

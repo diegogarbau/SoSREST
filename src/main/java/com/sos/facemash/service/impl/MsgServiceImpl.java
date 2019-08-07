@@ -19,8 +19,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class MsgServiceImpl implements MsgService {
-    private MsgDAO msgDAO;
-    private UserService userService;
+    private final MsgDAO msgDAO;
+    private final UserService userService;
 
     @Autowired
     MsgServiceImpl(MsgDAO msgDAO, UserService userService) {

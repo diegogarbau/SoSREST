@@ -17,7 +17,7 @@ public class UserUtils extends CoreUtils {
                 .setName(userTag + "-name")
                 .setLastName(userTag + "-LastName")
                 .setMail(userTag + "@mail.com")
-                .setPhone(random.nextInt(999999999))
+                .setPhone(RANDOM.nextInt(999999999))
                 .setFriends(new ArrayList<>())
                 .setFriendsOf(new ArrayList<>())
                 .setMessagesSent(new ArrayList<>())
@@ -32,7 +32,7 @@ public class UserUtils extends CoreUtils {
                 .setName(userTag + "-name")
                 .setLastName(userTag + "-LastName")
                 .setMail(userTag + "@mail.com")
-                .setPhone(random.nextInt(999999999))
+                .setPhone(RANDOM.nextInt(999999999))
                 .setFriends(new ArrayList<>())
                 .setFriendsOf(new ArrayList<>())
                 .setMessagesSent(new ArrayList<>())
@@ -47,18 +47,18 @@ public class UserUtils extends CoreUtils {
                 .setName(userTag + "-name")
                 .setLastName(userTag + "-LastName")
                 .setMail(userTag + "@mail.com")
-                .setPhone(random.nextInt(999999999))
+                .setPhone(RANDOM.nextInt(999999999))
                 .build();
     }
 
     public static List<User> userRandomListGenerator() {
-        return IntStream.rangeClosed(0, random.nextInt(8) + 1)
+        return IntStream.rangeClosed(0, RANDOM.nextInt(8) + 1)
                 .mapToObj(i -> UserRandomGenerator())
                 .collect(Collectors.toList());
     }
 
     public static List<User> userRandomListGenerator(String common) {
-        return IntStream.rangeClosed(0, random.nextInt(8) + 1)
+        return IntStream.rangeClosed(0, RANDOM.nextInt(8) + 1)
                 .mapToObj(i -> UserRandomGenerator(common))
                 .collect(Collectors.toList());
     }

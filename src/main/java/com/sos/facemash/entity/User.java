@@ -1,12 +1,8 @@
 package com.sos.facemash.entity;
 
-import com.sos.facemash.core.validators.PhoneConstraint;
-
 import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "users")
@@ -140,19 +136,6 @@ public class User {
         return this;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof User)) return false;
-        User user = (User) o;
-        return getUserName().equals(user.getUserName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getUserName());
-    }
-
     public static class Builder {
         private String userName;
         private String mail;
@@ -163,7 +146,6 @@ public class User {
         private List<User> friendsOf;
         private List<Msg> messagesSent;
         private List<Msg> messagesReceived;
-
 
         public Builder setUserName(String userName) {
             this.userName = userName;

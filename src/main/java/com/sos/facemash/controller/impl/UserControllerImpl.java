@@ -14,7 +14,7 @@ import javax.validation.Valid;
 @RestController
 public class UserControllerImpl implements UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserControllerImpl(UserService userService) {
