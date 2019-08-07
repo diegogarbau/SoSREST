@@ -92,7 +92,7 @@ public class MsgServiceTest {
         Msg msg = MsgUtils.ownMsgRandomGenerator(user);
         when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.of(msg));
         MsgDetailDTO resultDTO = msgServiceTest.getMsg(user.getUserName(), CoreUtils.random.nextLong());
-        assertThat(resultDTO.getOwner().getUserName(), is(user.getUserName()));
+        assertThat(resultDTO.getOwner(), is(user.getUserName()));
         assertThat(resultDTO.getTitle(), is(msg.getTitle()));
         assertThat(resultDTO.getBody(), is(msg.getBody()));
         assertThat(resultDTO.getDate(), is(msg.getDate()));
@@ -101,13 +101,19 @@ public class MsgServiceTest {
     @Test
     public void createMsgWorksTest() {
         User user = UserUtils.UserRandomGenerator();
-        Msg msg = MsgUtils.ownMsgRandomGenerator(user);
-        when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.of(msg));
-        MsgDetailDTO resultDTO = msgServiceTest.getMsg(user.getUserName(), CoreUtils.random.nextLong());
-        assertThat(resultDTO.getOwner().getUserName(), is(user.getUserName()));
-        assertThat(resultDTO.getTitle(), is(msg.getTitle()));
-        assertThat(resultDTO.getBody(), is(msg.getBody()));
-        assertThat(resultDTO.getDate(), is(msg.getDate()));
+        MsgInputDTO msgInput = MsgUtils.msgInputDTORandomGenerator();
+        Msg savedMsg = MsgInputDTOToMsg.map(msgInput,null);
+        savedMsg.setOwner(user);
+
+        when(userServiceMock.getUserOptional(any())).thenReturn(null);
+        when(userServiceMock.getUser(any())).thenReturn(user);
+        when(msgDAOMock.save(any())).thenReturn(savedMsg);
+
+
+        MsgDetailDTO resultDTO = msgServiceTest.createMsg(user.getUserName(),msgInput );
+        assertThat(resultDTO.getOwner(), is(user.getUserName()));
+        assertThat(resultDTO.getTitle(), is(msgInput.getTitle()));
+        assertThat(resultDTO.getBody(), is(msgInput.getBody()));
     }
 
     @Test(expected = UserNotFoundException.class)
@@ -139,10 +145,10 @@ public class MsgServiceTest {
         Msg msg = MsgUtils.ownMsgRandomGenerator(user);
         when(userServiceMock.getUser(any())).thenReturn(user);
         when(msgDAOMock.findByIdAndOwner(any(), any())).thenReturn(Optional.of(msg));
-        Msg updatedMsg = msg.updateMsg(MsgInputDTOToMsg.map(msgInput));
+        Msg updatedMsg = msg.updateMsg(MsgInputDTOToMsg.map(msgInput,null));
         when(msgDAOMock.save(any())).thenReturn(updatedMsg);
         MsgDetailDTO resultDTO = msgServiceTest.modifyMsg(CoreUtils.randomStringGenerator(), CoreUtils.random.nextLong(), msgInput);
-        assertThat(resultDTO.getOwner().getUserName(), is(user.getUserName()));
+        assertThat(resultDTO.getOwner(), is(user.getUserName()));
         assertThat(resultDTO.getTitle(), is(msgInput.getTitle()));
         assertThat(resultDTO.getBody(), is(msgInput.getBody()));
     }

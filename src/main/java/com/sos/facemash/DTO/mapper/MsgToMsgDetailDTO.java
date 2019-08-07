@@ -12,8 +12,8 @@ public class MsgToMsgDetailDTO {
                 .setTitle(msg.getTitle())
                 .setBody(msg.getBody())
                 .setDate(msg.getDate())
-                .setDestination(msg.getDestination())
-                .setOwner(msg.getOwner())
+                .setDestination((msg.getDestination()!=null)?msg.getDestination().getUserName():"")
+                .setOwner(msg.getOwner().getUserName())
                 .build();
     }
 }

@@ -1,6 +1,9 @@
 package com.sos.facemash.entity;
 
+import com.sos.facemash.core.validators.PhoneConstraint;
+
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;

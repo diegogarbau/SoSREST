@@ -6,7 +6,7 @@ import com.sos.facemash.DTO.MsgssDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-@Api(tags = "Msg")
+@Api(tags = "Users")
 public interface MsgController {
 
     @ApiOperation(value = "Msg", notes = "Endpoint to get all the messages from a user with filter and selected number of elements to show ", response = MsgssDTO.class)

@@ -8,8 +8,8 @@ public class MsgDetailDTO {
     private String title;
     private String body;
     private Date date;
-    private User owner;
-    private User destination;
+    private String owner;
+    private String destination;
 
     public String getTitle() {
         return title;
@@ -35,19 +35,19 @@ public class MsgDetailDTO {
         this.date = date;
     }
 
-    public User getOwner() {
+    public String getOwner() {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(String owner) {
         this.owner = owner;
     }
 
-    public User getDestination() {
+    public String getDestination() {
         return destination;
     }
 
-    public void setDestination(User destination) {
+    public void setDestination(String destination) {
         this.destination = destination;
     }
 
@@ -56,8 +56,8 @@ public class MsgDetailDTO {
         private String title;
         private String body;
         private Date date;
-        private User owner;
-        private User destination;
+        private String owner;
+        private String destination;
 
 
         public Builder setBody(String body) {
@@ -75,12 +75,12 @@ public class MsgDetailDTO {
             return this;
         }
 
-        public Builder setOwner(User owner) {
+        public Builder setOwner(String owner) {
             this.owner = owner;
             return this;
         }
 
-        public Builder setDestination(User destination) {
+        public Builder setDestination(String destination) {
             this.destination = destination;
             return this;
         }

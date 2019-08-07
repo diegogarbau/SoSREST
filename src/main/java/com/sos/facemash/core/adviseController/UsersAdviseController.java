@@ -26,7 +26,7 @@ public class UsersAdviseController {
     }
 
     @ExceptionHandler(NotFriendsException.class)
-    public ResponseEntity<ErrorDTO> usersNotfriendsError(NotFriendsException exception) {
+    public ResponseEntity<ErrorDTO> usersNotFriendsError(NotFriendsException exception) {
         ErrorDTO ErrorDTO = new ErrorDTO(exception.getMessage());
         return new ResponseEntity<>(ErrorDTO, HttpStatus.BAD_REQUEST);
     }

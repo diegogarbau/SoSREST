@@ -6,6 +6,7 @@ C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\service\impl\MsgSer
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\persistance\MsgDAO.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\core\exceptions\messagesExceptions\MessagesExceptions.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\controller\impl\MsgControllerImpl.java
+C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\core\validators\PhoneValidator.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\entity\Msg.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\ErrorDTO.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\UserDetailDTO.java
@@ -24,6 +25,7 @@ C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\MsgssDTO.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\DTO\mapper\UserInputDTOToUser.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\controller\impl\UserControllerImpl.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\persistance\UserDAO.java
+C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\core\validators\PhoneConstraint.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\core\exceptions\usersExceptions\UsersExceptions.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\FacemashApplication.java
 C:\DEV\Projects\UDEMI\SoSREST\src\main\java\com\sos\facemash\controller\UserController.java

@@ -53,6 +53,17 @@ public class UserControllerTest {
     }
 
     @Test
+    @Transactional
+    public void getAllUsersWithFilterTest() throws Exception {
+        ResultActions result = mockMvc.perform(get("/users/{filter}/", "bebl"));
+        result.andDo(print());
+        result.andExpect(status().isOk())
+
+                .andExpect(jsonPath("$.users.[0].userName").value("beblie16"))
+                .andExpect(jsonPath("$.users.[0].mail").value("bel.buar@coldmail.com"));
+    }
+
+    @Test
     public void getUserButNotFoundTest() throws Exception {
         ResultActions result = mockMvc.perform(get("/user/{userName}", "undefined"));
         result.andDo(print());
@@ -150,7 +161,7 @@ public class UserControllerTest {
 
     @Test
     public void deleteUserWorksTest() throws Exception {
-        ResultActions result = mockMvc.perform(delete("/users/{userName}", "beblie16")
+        ResultActions result = mockMvc.perform(delete("/users/{userName}", "ralph85")
                 .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
 
         result.andDo(print());
@@ -168,11 +179,11 @@ public class UserControllerTest {
 
     @Test
     public void addFriendsWorksTest() throws Exception {
-        ResultActions result = mockMvc.perform(put("/users/{userName}/friends/{friendUserName}", "arc90", "beblie16")
+        ResultActions result = mockMvc.perform(put("/users/{userName}/friends/{friendUserName}", "beblie16", "arc90")
                 .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
         result.andDo(print());
         result.andExpect(status().isOk())
-                .andExpect(jsonPath("$.users.[0].userName").value("beblie16"));
+                .andExpect(jsonPath("$.users.[0].userName").value("arc90"));
     }
 
     @Test
@@ -190,4 +201,46 @@ public class UserControllerTest {
         result.andDo(print());
         result.andExpect(status().isNotFound());
     }
+
+    @Test
+    public void DeleteFriendButUserNotFoundTest() throws Exception {
+        ResultActions result = mockMvc.perform(delete("/users/{userName}/friends/{friendUserName}", "arc90", "undefined")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+        result.andDo(print());
+        result.andExpect(status().isNotFound());
+    }
+
+    @Test
+    public void DeleteFriendWorksTest() throws Exception {
+        ResultActions result = mockMvc.perform(delete("/users/{userName}/friends/{friendUserName}", "arc90", "charlie_magic")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+        result.andDo(print());
+        result.andExpect(status().isOk())
+                .andExpect(jsonPath("$.userName").doesNotExist());
+    }
+    @Test
+    public void DeleteFriendButTheyAreNotFriendsTest() throws Exception {
+        ResultActions result = mockMvc.perform(delete("/users/{userName}/friends/{friendUserName}", "ralph85", "charlie_magic")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+        result.andDo(print());
+        result.andExpect(status().isBadRequest());
+    }
+
+    @Test
+    public void GetFriendsWorksTest() throws Exception {
+        ResultActions result = mockMvc.perform(get("/users/{userName}/friends/", "arc90")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+        result.andDo(print());
+        result.andExpect(status().isOk());
+    }
+
+    @Test
+    public void GetFriendsNotFoundTest() throws Exception {
+        ResultActions result = mockMvc.perform(get("/users/{userName}/friends/", "undefined")
+                .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE));
+        result.andDo(print());
+        result.andExpect(status().isNotFound());
+    }
+
+
 }

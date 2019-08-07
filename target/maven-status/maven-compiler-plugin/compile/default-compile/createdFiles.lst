@@ -1,5 +1,6 @@
 com\sos\facemash\core\exceptions\usersExceptions\UserNotFoundException.class
 com\sos\facemash\FacemashApplication.class
+com\sos\facemash\core\validators\PhoneConstraint.class
 com\sos\facemash\DTO\UserInputDTO$1.class
 com\sos\facemash\persistance\MsgDAO.class
 com\sos\facemash\DTO\MsgDetailDTO$Builder.class
@@ -16,6 +17,7 @@ com\sos\facemash\DTO\UserInputDTO$Builder.class
 com\sos\facemash\service\impl\MsgServiceImpl.class
 com\sos\facemash\service\MsgService.class
 com\sos\facemash\DTO\UserSummaryDTO$Builder.class
+com\sos\facemash\core\validators\PhoneValidator.class
 com\sos\facemash\DTO\mapper\UserToUserSummaryDTO.class
 com\sos\facemash\controller\UserController.class
 com\sos\facemash\DTO\mapper\UserInputDTOToUser.class

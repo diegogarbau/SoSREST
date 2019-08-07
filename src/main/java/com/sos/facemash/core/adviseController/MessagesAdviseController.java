@@ -13,7 +13,7 @@ public class MessagesAdviseController {
     @ExceptionHandler(MsgNotFoundException.class)
     public ResponseEntity<ErrorDTO> mesaggeNotFoundError(MsgNotFoundException exception) {
         ErrorDTO ErrorDTO = new ErrorDTO(exception.getMessage());
-        return new ResponseEntity<>(ErrorDTO, HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>(ErrorDTO, HttpStatus.NOT_FOUND);
     }
 
 }

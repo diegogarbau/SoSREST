@@ -2,6 +2,7 @@ package com.sos.facemash.DTO;
 
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.sos.facemash.core.validators.PhoneConstraint;
 
 import javax.validation.constraints.NotEmpty;
 
@@ -11,6 +12,7 @@ public class UserInputDTO {
     private String userName;
     @NotEmpty
     private String mail;
+    @PhoneConstraint
     private int phone;
     @NotEmpty
     private String name;

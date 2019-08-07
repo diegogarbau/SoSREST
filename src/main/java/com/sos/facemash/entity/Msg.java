@@ -57,9 +57,8 @@ public class Msg {
         return owner;
     }
 
-    public Msg setOwner(User owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
-        return this;
     }
 
     public User getDestination() {

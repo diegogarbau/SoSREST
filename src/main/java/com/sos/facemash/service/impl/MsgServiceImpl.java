@@ -8,6 +8,7 @@ import com.sos.facemash.DTO.mapper.MsgToMsgDetailDTO;
 import com.sos.facemash.DTO.mapper.MsgToMsgSummaryDTO;
 import com.sos.facemash.core.exceptions.messagesExceptions.MsgNotFoundException;
 import com.sos.facemash.entity.Msg;
+import com.sos.facemash.entity.User;
 import com.sos.facemash.persistance.MsgDAO;
 import com.sos.facemash.service.MsgService;
 import com.sos.facemash.service.UserService;
@@ -31,8 +32,8 @@ public class MsgServiceImpl implements MsgService {
     public MsgssDTO getAllMsg(String userName, String filter, int nElements) {
         return new MsgssDTO(msgDAO.findAllByOwner(userService.getUser(userName))
                 .stream()
-                .filter(msg -> msg.getTitle().contains(filter))
-                .limit((nElements == 0) ? 10 : nElements)
+                .filter(msg -> msg.getTitle().contains((filter != null) ? filter : ""))
+                .limit(nElements)
                 .map(MsgToMsgSummaryDTO::map)
                 .collect(Collectors.toList()));
     }
@@ -45,35 +46,49 @@ public class MsgServiceImpl implements MsgService {
 
     @Override
     public MsgDetailDTO createMsg(String userName, MsgInputDTO msgInputDTO) {
-        Msg msg = MsgInputDTOToMsg.map(msgInputDTO);
-        return saveMsg(msg.setOwner(userService.getUser(userName)));
+        User destination = userService.getUserOptional(msgInputDTO.getDestinationId());
+        Msg msg = MsgInputDTOToMsg.map(msgInputDTO, destination);
+        return saveMsg(saveOwnerAndDestination(msg, userName));
+    }
+
+    private Msg saveOwnerAndDestination(Msg msg, String userName) {
+        msg.setOwner(userService.getUser(userName));
+        msg.getOwner().getMessagesSent().add(msg);
+        userService.saveUser(msg.getOwner());
+        if (msg.getDestination() != null) {
+            msg.getDestination().getMessagesReceived().add(msg);
+            userService.saveUser(msg.getDestination());
+        }
+        return msg;
     }
 
     @Override
     public MsgDetailDTO modifyMsg(String userName, Long msgId, MsgInputDTO msgInputDTO) {
         Msg msg = msgDAO.findByIdAndOwner(msgId, userService.getUser(userName)).orElseThrow(()
                 -> new MsgNotFoundException("El mensaje no figura en la base de datos"));
-        msg.updateMsg(MsgInputDTOToMsg.map(msgInputDTO));
-        if (msgInputDTO.getDestinationId() != null) {
-            msg.setDestination(userService.getUser(msgInputDTO.getDestinationId()));
-        }
+        msg.updateMsg(MsgInputDTOToMsg.map(msgInputDTO, msg.getDestination()));
         return saveMsg(msg);
     }
 
     private MsgDetailDTO saveMsg(Msg msg) {
-        if (msg.getDestination() != null) {
-            msg.getDestination().getMessagesReceived().add(msg);
-            userService.saveUser(msg.getDestination());
-        }
-        msg.getOwner().getMessagesSent().add(msg);
-        userService.saveUser(msg.getOwner());
         return MsgToMsgDetailDTO.map(msgDAO.save(msg));
     }
 
     @Override
     public void deleteMsg(String userName, Long msgId) {
-        msgDAO.delete(msgDAO.findByIdAndOwner(msgId, userService.getUser(userName)).orElseThrow(()
-                -> new MsgNotFoundException("El mensaje no figura en la base de datos")));
+        User user = userService.getUser(userName);
+        Msg msg = msgDAO.findByIdAndOwner(msgId, user).orElseThrow(()
+                -> new MsgNotFoundException("El mensaje no figura en la base de datos"));
+        user.getMessagesSent().remove(msg);
+        userService.saveUser(user);
+        if (msg.getDestination() != null) {
+            msg.getDestination().getMessagesReceived().remove(msg);
+            userService.saveUser(msg.getDestination());
+        }
+
+        msgDAO.delete(msg);
+
+
     }
 
 }

@@ -57,7 +57,7 @@ public class MsgUtils extends CoreUtils {
         return new MsgInputDTO.Builder()
                 .setTitle(randomStringGenerator())
                 .setBody(randomStringGenerator())
-                .setDestinationId(UserUtils.UserRandomGenerator().getUserName())
+                .setDestinationId(null)
                 .build();
     }
 

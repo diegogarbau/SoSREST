@@ -11,6 +11,8 @@ public class MsgToMsgSummaryDTO {
         return new MsgSummaryDTO.Builder()
                 .setTitle(msg.getTitle())
                 .setDate(msg.getDate())
+                .setOwner((msg.getOwner()!=null)?msg.getOwner().getUserName():"")
+                .setDestination((msg.getDestination()!=null)?msg.getDestination().getUserName():"")
                 .build();
     }
 }

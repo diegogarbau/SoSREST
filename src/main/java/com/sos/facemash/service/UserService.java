@@ -14,6 +14,7 @@ public interface UserService {
     UserDetailDTO getUserDetail(String userName);
 
     User getUser(String userName);
+    User getUserOptional(String userName);
 
     UserDetailDTO createUser(UserInputDTO user);
 
