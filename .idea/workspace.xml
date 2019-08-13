@@ -2,13 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcfe94db-f043-4b11-9c15-ecc3aba485de" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/MailAlreadyUsingException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/UserNameAlreadyUsingException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/Msg.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/Msg.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/persistance/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/persistance/UserDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/UserServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/data.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sos/facemash/entity/Msg.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sos/facemash/entity/Msg.class" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,7 +17,7 @@
   </component>
   <component name="CoverageViewManager">
     <option name="myAutoScrollToSource" value="true" />
-    <option name="myElementSize" value="133" />
+    <option name="myElementSize" value="138" />
   </component>
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
@@ -248,7 +247,7 @@
     <SUITE FILE_PATH="coverage/SoSREST$MsgControllerTest.ic" NAME="MsgControllerTest Coverage Results" MODIFIED="1565092209823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sos.facemash.controller.impl.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SoSREST$All_in_facemash.ic" NAME="All in facemash Coverage Results" MODIFIED="1565695617145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SoSREST$All_in_facemash.ic" NAME="All in facemash Coverage Results" MODIFIED="1565699296103" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SoSREST$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1564391369817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sos.facemash.service.impl.*</FILTER>
     </SUITE>

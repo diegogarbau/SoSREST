@@ -8,6 +8,11 @@ import java.util.List;
 @Table(name = "users")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+
+    @Column(unique = true)
     private String userName;
     @Column(unique = true)
     private String mail;
@@ -17,31 +22,39 @@ public class User {
 
     @ManyToMany
     @JoinTable(name = "friends",
-            joinColumns = @JoinColumn(name = "userName"),
+            joinColumns = @JoinColumn(name = "id"),
             inverseJoinColumns = @JoinColumn(name = "friendId"))
     private List<User> friends;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "friends",
             joinColumns = @JoinColumn(name = "friendId"),
-            inverseJoinColumns = @JoinColumn(name = "userName"))
+            inverseJoinColumns = @JoinColumn(name = "id"))
     private List<User> friendsOf;
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "messagesSent",
-            joinColumns = @JoinColumn(name = "users_userName"),
+            joinColumns = @JoinColumn(name = "users_id"),
             inverseJoinColumns = @JoinColumn(name = "messages_id"))
     private List<Msg> messagesSent;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "messagesReceived",
-            joinColumns = @JoinColumn(name = "users_userName"),
+            joinColumns = @JoinColumn(name = "users_id"),
             inverseJoinColumns = @JoinColumn(name = "messages_id"))
     private List<Msg> messagesReceived;
 
 
     private User() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getUserName() {
