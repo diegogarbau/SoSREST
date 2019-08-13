@@ -2,20 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bcfe94db-f043-4b11-9c15-ecc3aba485de" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/MailAlreadyUsingException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/core/exceptions/usersExceptions/UserNameAlreadyUsingException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/ErrorDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/ErrorDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgDetailDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgDetailDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgssDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/MsgssDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UsersDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/DTO/UsersDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/MsgControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/MsgControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/UserControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/controller/impl/UserControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/MsgServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/MsgServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/persistance/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/persistance/UserDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/MsgServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/MsgServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/CoreUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/CoreUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/MsgUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/MsgUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/UserUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/utils/UserUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/sos/facemash/service/impl/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -58,10 +51,6 @@
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.sos.facemash.core.Exceptions" />
-      <recent name="com.sos.facemash.DTO" />
-    </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.sos.facemash.controller.impl" />
       <recent name="com.sos.facemash.service" />
@@ -74,20 +63,24 @@
       <recent name="com.sos.facemash.service" />
       <recent name="com.sos.facemash" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\DEV\Projects\UDEMI\SoSREST\src\main\resources\db\changelog" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\DEV\Projects\UDEMI\SoSREST\src\main\resources" />
       <recent name="C:\DEV\Projects\UDEMI\SoSREST\src\test\resources" />
       <recent name="C:\DEV\Projects\UDEMI\SoSREST\src\main\resources\db\changelog" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.sos.facemash.core.exceptions.usersExceptions" />
       <recent name="com.sos.facemash.core.adviseController" />
       <recent name="com.sos.facemash.core.exceptions" />
       <recent name="com.sos.facemash.DTO" />
       <recent name="com.sos.facemash.controller.impl" />
-      <recent name="com.sos.facemash.utils" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\DEV\Projects\UDEMI\SoSREST\src\main\resources\db\changelog" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.sos.facemash.core.Exceptions" />
+      <recent name="com.sos.facemash.DTO" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -126,38 +119,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MsgControllerTest.modifyMsgButMsgNotFoundTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="facemash" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sos.facemash.controller.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.sos.facemash.controller.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.sos.facemash.controller.impl.MsgControllerTest" />
-      <option name="METHOD_NAME" value="modifyMsgButMsgNotFoundTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MsgControllerTest.modifyMsgButUserNotFoundTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="facemash" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.sos.facemash.controller.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.sos.facemash.controller.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.sos.facemash.controller.impl.MsgControllerTest" />
-      <option name="METHOD_NAME" value="modifyMsgButUserNotFoundTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="MsgControllerTest.modifyMsgWithOutDestinationWorksTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="facemash" />
       <extension name="coverage">
@@ -174,20 +135,52 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UserServiceTest.modifyUserButThrowsMailInUseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="facemash" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sos.facemash.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sos.facemash.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.sos.facemash.service.impl.UserServiceTest" />
+      <option name="METHOD_NAME" value="modifyUserButThrowsMailInUseTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest.modifyUserButThrowsUserNameInUseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="facemash" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sos.facemash.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.sos.facemash.service.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.sos.facemash.service.impl.UserServiceTest" />
+      <option name="METHOD_NAME" value="modifyUserButThrowsUserNameInUseTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="JUnit.MsgControllerTest.modifyMsgButUserNotFoundTest" />
-      <item itemvalue="JUnit.MsgControllerTest.modifyMsgButMsgNotFoundTest" />
       <item itemvalue="JUnit.MsgControllerTest.modifyMsgWithOutDestinationWorksTest" />
       <item itemvalue="JUnit.MsgControllerTest" />
       <item itemvalue="JUnit.All in facemash" />
+      <item itemvalue="JUnit.UserServiceTest.modifyUserButThrowsMailInUseTest" />
+      <item itemvalue="JUnit.UserServiceTest.modifyUserButThrowsUserNameInUseTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.All in facemash" />
+        <item itemvalue="JUnit.UserServiceTest.modifyUserButThrowsUserNameInUseTest" />
+        <item itemvalue="JUnit.UserServiceTest.modifyUserButThrowsMailInUseTest" />
         <item itemvalue="JUnit.MsgControllerTest" />
         <item itemvalue="JUnit.MsgControllerTest.modifyMsgWithOutDestinationWorksTest" />
-        <item itemvalue="JUnit.MsgControllerTest.modifyMsgButMsgNotFoundTest" />
-        <item itemvalue="JUnit.MsgControllerTest.modifyMsgButUserNotFoundTest" />
       </list>
     </recent_temporary>
   </component>
@@ -245,7 +238,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/sos/facemash/service/impl/UserServiceImpl.java</url>
-          <line>105</line>
+          <line>117</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
@@ -255,7 +248,7 @@
     <SUITE FILE_PATH="coverage/SoSREST$MsgControllerTest.ic" NAME="MsgControllerTest Coverage Results" MODIFIED="1565092209823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sos.facemash.controller.impl.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/SoSREST$All_in_facemash.ic" NAME="All in facemash Coverage Results" MODIFIED="1565173131813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/SoSREST$All_in_facemash.ic" NAME="All in facemash Coverage Results" MODIFIED="1565695617145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/SoSREST$UserServiceTest.ic" NAME="UserServiceTest Coverage Results" MODIFIED="1564391369817" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sos.facemash.service.impl.*</FILTER>
     </SUITE>
@@ -265,35 +258,6 @@
     <SUITE FILE_PATH="coverage/SoSREST$UserControllerTest.ic" NAME="UserControllerTest Coverage Results" MODIFIED="1565076993451" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>com.sos.facemash.controller.impl.*</FILTER>
     </SUITE>
-  </component>
-  <component name="debuggerHistoryManager">
-    <expressions id="evaluateExpression">
-      <expression>
-        <expression-string>assertThat(resultDTO.getBody(), is(msg.getBody()))</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>msgDAO.findByIdAndOwner(msgId, userService.getUser(userName)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>assertThat(resultDTO.getOwner(), is(user))</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>!user.getFriendOf().contains(friend)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>user.getFriendOf().contains(friend)</expression-string>
-        <language-id>JAVA</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-    </expressions>
   </component>
   <component name="mavenExecuteGoalHistory">
     <option value="" />

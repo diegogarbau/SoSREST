@@ -6,10 +6,7 @@ import com.sos.facemash.DTO.UsersDTO;
 import com.sos.facemash.DTO.mapper.UserInputDTOToUser;
 import com.sos.facemash.DTO.mapper.UserToUserDetailDTO;
 import com.sos.facemash.DTO.mapper.UserToUserSummaryDTO;
-import com.sos.facemash.core.exceptions.usersExceptions.AlreadyFriendsException;
-import com.sos.facemash.core.exceptions.usersExceptions.DuplicatedUserException;
-import com.sos.facemash.core.exceptions.usersExceptions.NotFriendsException;
-import com.sos.facemash.core.exceptions.usersExceptions.UserNotFoundException;
+import com.sos.facemash.core.exceptions.usersExceptions.*;
 import com.sos.facemash.entity.User;
 import com.sos.facemash.persistance.UserDAO;
 import com.sos.facemash.service.UserService;
@@ -64,12 +61,17 @@ public class UserServiceImpl implements UserService {
         if (userDAO.findByUserName(user.getUserName()).isPresent())
             throw new DuplicatedUserException("Ya Existe ese usuario");
         return saveUser(UserInputDTOToUser.map((user)));
-
     }
 
     @Override
     public UserDetailDTO modifyUser(String userName, UserInputDTO user) {
         User userToUpdate = getUser(userName);
+        if (!user.getUserName().equals(userName)) {
+            checkUserNameUsed(user.getUserName());
+        }
+        if (!user.getMail().equals(userToUpdate.getMail())) {
+            checkMailUsed(user.getMail());
+        }
         return saveUser(updateUser(userToUpdate, UserInputDTOToUser.map((user))));
     }
 
@@ -84,6 +86,16 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(String userName) {
         userDAO.delete(getUser(userName));
     }
+
+    private void checkUserNameUsed(String userName) {
+        if (userDAO.existsByUserName(userName))
+            throw new UserNameAlreadyUsingException("Ese nombre de usuario ya se encuentra en uso");
+    }
+
+    private void checkMailUsed(String mail) {
+        if (userDAO.existsByMail(mail)) throw new MailAlreadyUsingException("Ese correo ya se encuentra en uso");
+    }
+
 
     @Override
     public UsersDTO addFriend(String userName, String friendUserName) {

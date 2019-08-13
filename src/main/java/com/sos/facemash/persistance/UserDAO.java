@@ -12,4 +12,7 @@ public interface UserDAO extends CrudRepository <User, String> {
     Optional<User> findByUserName(String userName);
 
     List<User> findAll();
+
+    boolean existsByUserName(String userName);
+    boolean existsByMail(String mail);
 }

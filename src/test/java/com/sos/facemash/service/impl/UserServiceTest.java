@@ -6,10 +6,7 @@ import com.sos.facemash.DTO.UserInputDTO;
 import com.sos.facemash.DTO.UserSummaryDTO;
 import com.sos.facemash.DTO.UsersDTO;
 import com.sos.facemash.DTO.mapper.UserInputDTOToUser;
-import com.sos.facemash.core.exceptions.usersExceptions.AlreadyFriendsException;
-import com.sos.facemash.core.exceptions.usersExceptions.DuplicatedUserException;
-import com.sos.facemash.core.exceptions.usersExceptions.NotFriendsException;
-import com.sos.facemash.core.exceptions.usersExceptions.UserNotFoundException;
+import com.sos.facemash.core.exceptions.usersExceptions.*;
 import com.sos.facemash.entity.User;
 import com.sos.facemash.persistance.UserDAO;
 import com.sos.facemash.service.UserService;
@@ -143,11 +140,29 @@ public class UserServiceTest {
         assertThat(resultDTO.getPhone(), is(userModified.getPhone()));
     }
 
+    @Test(expected = MailAlreadyUsingException.class)
+    public void modifyUserButThrowsMailInUseTest() {
+        when(userDAOMock.findByUserName(any())).thenReturn(Optional.of(UserUtils.UserRandomGenerator()));
+        when(userDAOMock.existsByUserName(any())).thenReturn(false);
+        when(userDAOMock.existsByMail(any())).thenReturn(true);
+        userServiceTest.modifyUser(UserUtils.randomStringGenerator(), UserUtils.UserInputDTORandomGenerator());
+    }
+
+    @Test(expected = UserNameAlreadyUsingException.class)
+    public void modifyUserButThrowsUserNameInUseTest() {
+
+        when(userDAOMock.findByUserName(any())).thenReturn(Optional.of(UserUtils.UserRandomGenerator()));
+        when(userDAOMock.existsByUserName(any())).thenReturn(true);
+
+        userServiceTest.modifyUser(UserUtils.randomStringGenerator(), UserUtils.UserInputDTORandomGenerator());
+    }
+
     @Test(expected = UserNotFoundException.class)
     public void deleteUserThrowsUserNotFoundTest() {
         when(userDAOMock.findByUserName(any())).thenReturn(Optional.empty());
         userServiceTest.deleteUser(UserUtils.randomStringGenerator());
     }
+
     @Test(expected = UserNotFoundException.class)
     public void deleteUserWorksTest() {
         when(userDAOMock.findByUserName(any())).thenReturn(Optional.empty());
